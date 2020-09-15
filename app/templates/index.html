@@ -1,0 +1,25 @@
+{% extends "layout.html" %}
+{% block title %}Index{% endblock %}
+{% block content %}
+<div class="fade_in_page">
+    <div id="index">
+        <div class="content">
+            <div class="thoughts">
+                {% for thought in thoughts %}
+                <h3>
+                    <a href="{{ url_for('thought_index', thought_key=thought)}}">
+                        <span class="yo">
+                            {{ thoughts[thought].title }}
+                        </span>
+                    </a>
+                    <p>
+                        <i>
+                            {{ thoughts[thought].date }}
+                        </i>
+                    </p>
+                    {% endfor %}
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

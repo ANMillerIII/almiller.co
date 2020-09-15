@@ -1,0 +1,36 @@
+{% extends "layout.html" %}
+{% block title %}{{thought.title}}{% endblock %}
+{% block content %}
+<div class="content fade_in_page">
+    {% if thought %}
+    <div class="thought_heading">
+        <h5 class="thought_title">
+            {{ thought.title }}
+        </h5>
+        <p class="thought_date">
+            {{ thought.date }}
+        </p>
+    </div>
+    <div class="thought_body fade_in_page_slower">
+        <p>{{ thought.text | safe}}</p>
+        {% else %}
+        <p>{{ thought_key }} was not found.</p>
+        {% endif %}
+    </div>
+    <div class="thoughts" id="thoughts_recap">
+        {% for thought in three_thoughts %}
+        <h3>
+            <a href="{{ url_for('thought_index', thought_key=thought)}}">
+                <span class="yo">
+                    {{ three_thoughts[thought].title }}
+                </span>
+            </a>
+            <p>
+                <i>
+                    {{ three_thoughts[thought].date }}
+                </i>
+            </p>
+            {% endfor %}
+    </div>
+</div>
+{% endblock %}

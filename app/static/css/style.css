@@ -1,0 +1,470 @@
+html, body, .content, .sidebar {
+  /* overflow: scroll; */
+  /* overflow-x: hidden; */
+  font-family: minerva modern;
+  font-size: 12px;
+  /* background-color: #d5dad3; */
+  color: #303a2c;
+}
+
+a {
+  color: black !important;
+}
+
+html::-webkit-scrollbar, body::-webkit-scrollbar, .content::-webkit-scrollbar, .sidebar::-webkit-scrollbar, .bottom_bar::-webkit-scrollbar {
+  display: none;
+}
+
+/* Fade Animation */
+
+.fade_in_page_slower {
+  animation: fadeIn ease 2.5s;
+  -webkit-animation: fadeIn ease 2.5s;
+  -moz-animation: fadeIn ease 2.5s;
+  -o-animation: fadeIn ease 2.5s;
+  -ms-animation: fadeIn ease 2.5s;
+}
+
+.fade_in_page {
+  animation: fadeIn ease 1s;
+  -webkit-animation: fadeIn ease 1s;
+  -moz-animation: fadeIn ease 1s;
+  -o-animation: fadeIn ease 1s;
+  -ms-animation: fadeIn ease 1s;
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@-moz-keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@-webkit-keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@-o-keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@-ms-keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+/* The side navigation menu */
+
+/* .sidebar {
+  margin: 0;
+  padding: 0;
+  width: 200px;
+  background-color: #f1f1f1;
+  position: fixed;
+  height: 100%;
+  overflow: auto;
+} */
+
+/* Sidebar links */
+
+/* .sidebar a {
+  display: block;
+  color: black;
+  padding: 16px;
+  text-decoration: none;
+} */
+
+/* Active/current link */
+
+/* .sidebar a.active {
+  background-color: #4CAF50;
+  color: white;
+} */
+
+/* Links on mouse-over */
+
+/* .sidebar a:hover:not(.active) {
+  background-color: #555;
+  color: white;
+} */
+
+/* Page content. The value of the margin-left property should match the value of the sidebar's width property */
+
+/* div.content {
+  margin-left: 200px;
+  padding: 1px 16px;
+  height: 1000px;
+} */
+
+/* On screens that are less than 700px wide, make the sidebar into a topbar */
+
+/* @media screen and (max-width: 700px) {
+  .sidebar {
+    width: 100%;
+    height: auto;
+    position: relative;
+  }
+  .contact
+  .sidebar a {float: left; padding: 20px;}
+  div.content {margin-left: 0;}
+} */
+
+/* On screens that are less than 400px, display the bar vertically, instead of horizontally */
+
+/* @media screen and (max-width: 400px) {
+  .sidebar a {
+    text-align: center;
+    float: none;
+  }
+}
+ */
+
+.content {
+  /* background-color: #eee;
+  width: 200px;
+  height: 100px;
+  border: 1px dotted black; */
+  overflow-y: hidden;
+  /* Add the ability to scroll */
+}
+
+/* Hide scrollbar for Chrome, Safari and Opera */
+
+.content::-webkit-scrollbar {
+  display: none;
+}
+
+/* Hide scrollbar for IE, Edge and Firefox */
+
+.content {
+  -ms-overflow-style: none;
+  /* IE and Edge */
+  scrollbar-width: none;
+  /* Firefox */
+}
+
+/* .content {
+
+} */
+
+.thought_heading {
+  margin-top: 10%;
+  margin-left: 50%;
+}
+
+.thoughts {
+  margin-top: 10%;
+}
+
+.thoughts h3 {
+  font-size: 14px;
+}
+
+.thoughts p {
+  margin-top: -2px;
+}
+
+.about_text {
+  margin: auto;
+  margin-top: 2%;
+  margin-left: 10.5%;
+  width: 65%;
+}
+
+.about_signature {
+  text-align: right;
+  margin-right: 12%;
+}
+
+#ytplayer {
+  margin: auto;
+  width: 60%;
+  margin-top: 3%;
+  margin-left: 16%;
+}
+
+.logo_block {
+  display: block;
+  float: left;
+}
+
+.avatar {
+  height: 3px;
+  margin-top: 50px;
+  margin-left: 75px;
+  justify-self: center;
+  border-radius: 50%;
+}
+
+/* Three image containers (use 25% for four, and 50% for two, etc) */
+
+.column {
+  float: left;
+  width: 25%;
+}
+
+/* .circle {
+  height: 50px;
+  width: 50px;
+  background-color: #eff2f7;
+  border-radius: 50%;
+  display: inline-block;
+  text-align: center;
+} */
+
+.icon {
+  display: inline-block;
+  position: relative;
+  top: calc(50% - 8px);
+  font-size: 12px !important;
+  transition: color 0.4s;
+}
+
+.fa-linkedin:hover {
+  color: rgb(0, 204, 255);
+  transition: color 0.4s;
+}
+
+.fa-github:hover {
+  color: rgb(255, 0, 0);
+  transition: color 0.4s;
+}
+
+.fa-file-pdf-o:hover {
+  color: rgb(255, 251, 0);
+  transition: color 0.4s;
+}
+
+.material-icons:hover {
+  color: rgb(0, 60, 255);
+  transition: color 0.4s;
+}
+
+.material-icons {
+  font-size: 14px !important;
+}
+
+/* Clear floats after image containers */
+
+.row::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+.links {
+  margin-top: 150px;
+  margin-left: 110px;
+}
+
+@media (max-width:629px) {
+  .avatar {
+    display: none;
+  }
+}
+
+.contact {
+  margin-top: 80px;
+  margin-left: 65px;
+  /* margin-bottom: -500px; */
+  width: 50%;
+}
+
+.ul {
+  display: block;
+  float: left;
+  list-style-type: none !important;
+}
+
+.side_bar_top_margin {
+  margin-top: 10px;
+}
+
+.self_title {
+  margin-top: 55px;
+  margin-left: 65px;
+}
+
+.self_title h3 {
+  font-size: 26px;
+}
+
+.self_title p {
+  font-style: italic;
+  margin-top: -10px;
+}
+
+/* The side navigation menu */
+
+.sidebar {
+  margin: 0;
+  padding: 0;
+  width: 350px;
+  /* background-color: #f1f1f1; */
+  position: fixed;
+  height: 100%;
+  overflow: hidden;
+}
+.thought_title {
+  font-style: italic;
+}
+
+.thought_date {
+  margin-top: -10px;
+  font-style: italic;
+}
+
+.thought_body {
+  margin-top: 4%;
+  width: 60%;
+}
+
+/* Sidebar links */
+
+.sidebar a {
+  display: block;
+  color: black;
+  /* padding: 16px; */
+  margin-top: 60px;
+  text-decoration: none;
+}
+
+/* Page content. The value of the margin-left property should match the value of the sidebar's width property */
+
+div.content {
+  margin-left: 350px;
+  height: 1000px;
+  overflow-x: hidden;
+}
+
+/* On screens that are less than 700px wide, make the sidebar into a topbar */
+
+/* @media screen and (orientation:portrait) { … }
+@media screen and (orientation:landscape) { … } */
+
+/* and (orientation:landscape) */
+
+
+
+
+@media screen and (max-width: 700px) {
+  .sidebar {
+    width: 100%;
+    height: auto;
+    position: relative;
+  }
+  .links {
+    margin-top: -60px;
+    /* padding: 16; */
+  }
+  .contact {
+    /* margin-top: -60px; */
+    /* margin-left: 25%; */
+    margin-left: 25%;
+  }
+  .column {
+    margin-top: -20%;
+    /* min-width: 20px; */
+  }
+  .self_title p {
+    /* margin-bottom: -50px; */
+  }
+  /* .material-icons {
+    margin-left:
+  } */
+  .self_title {
+    justify-content: center;
+    margin-left: 30%;
+  }
+  .sidebar a {
+    padding-right: 32px;
+    float: left;
+  }
+  div.content {
+    margin-left: 0;
+  }
+}
+
+/* On screens that are less than 400px, display the bar vertically, instead of horizontally */
+
+/* @media screen and (max-width: 400px) {
+  .sidebar a {
+    text-align: center;
+    float: none;
+  }
+} */
+
+#thoughts_recap {
+  margin-left: 70%;
+  margin-top: 20%;
+  /* font-size: 4px !important;
+  color: rgb(97, 97, 97) !important; */
+}
+
+.links a:hover, .thoughts a:hover {
+  text-decoration: none;
+}
+
+.links span, .thoughts span, .yo {
+  text-decoration: none;
+  background-image: linear-gradient(currentColor, currentColor);
+  background-position: 0 100%;
+  background-repeat: no-repeat;
+  background-size: 0% 1px;
+  transition: background-size cubic-bezier(0.25, 0.25, 0.25, 0.25) 0.25s;
+}
+
+.links span:hover, .thoughts span:hover, .yo:hover .links span:focus, .thoughts span:focus, .yo:focus {
+  text-decoration: none;
+  background-size: 100% 1px;
+}
+
+.yo:active {
+  /* text-decoration:none; */
+  text-decoration: underline;
+}
+
+.yo:visited {
+  text-decoration: none;
+}
+
+a:active {
+  text-decoration: none !important;
+}
+
+.bottom_bar {
+  margin: 0;
+  margin-top: -15%;
+  right: -10%;
+  padding: 0;
+  width: 350px;
+  /* background-color: #f1f1f1; */
+  position: fixed;
+  height: 100%;
+  overflow: hidden;
+}

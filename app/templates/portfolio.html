@@ -1,0 +1,21 @@
+{% extends "layout.html" %}
+{% block title %}portfolio{% endblock %}
+{% block content %}
+<div class="content fade_in_page">
+    <div class="thoughts">
+        {% for project in projects %}
+        <h3>
+            <a href="{{ url_for('portfolio_index', project_key=project)}}">
+                <span class="project_thought_title">
+                    {{ projects[project].title }}
+                </span>
+            </a>
+            <p>
+                <i>
+                    {{ projects[project].date }}
+                </i>
+            </p>
+            {% endfor %}
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,21 @@
+{% extends "layout.html" %}
+{% block title %}{{project.title}}{% endblock %}
+{% block content %}
+<div class="content fade_in_page">
+    {% if project %}
+    <div class="thought_heading">
+        <h5 class="thought_title">
+            {{ project.title }}
+        </h5>
+        <p class="thought_date">
+            {{ project.date }}
+        </p>
+    </div>
+    <div class="thought_body fade_in_page_slower">
+        <p>{{ project.text | safe}}</p>
+        {% else %}
+        <p>{{ project_key }} was not found.</p>
+        {% endif %}
+    </div>
+</div>
+{% endblock %}
