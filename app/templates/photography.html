@@ -1,0 +1,11 @@
+{% extends "layout.html" %}
+{% block title %}Photography{% endblock %}
+{% block content %}
+{% for image in images %}
+<div class="gallery_pics_holder">
+    <div class="gallery_pics">
+        <img id="myImg" class="images_class" src="{{url_for('static', filename='./assets/photos/pct/'+image)}}" />
+    </div>
+</div>
+{% endfor %}
+{% endblock %}

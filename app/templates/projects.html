@@ -8,10 +8,14 @@
             {{ project.title }}
         </h5>
         <p class="thought_date">
-            {{ project.date }}
+            {{ project.date|format_date_time }}
         </p>
     </div>
     <div class="thought_body fade_in_page_slower">
+        {% if project.skills %}
+        <p><i> {{project.skills}} </i></p>
+        <br>
+        {% endif %}
         <p>{{ project.text | safe}}</p>
         {% else %}
         <p>{{ project_key }} was not found.</p>

@@ -1,9 +1,8 @@
 py
 flask
 Frozen-Flask
-flask_wtf
 email_validator
-
+babel
 
 # #
 # ####### example-requirements.txt #######

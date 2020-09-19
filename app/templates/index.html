@@ -1,23 +1,49 @@
 {% extends "layout.html" %}
 {% block title %}Index{% endblock %}
+{% block side_bar %}
+{% endblock %}
 {% block content %}
-<div class="fade_in_page">
-    <div id="index">
-        <div class="content">
-            <div class="thoughts">
-                {% for thought in thoughts %}
-                <h3>
-                    <a href="{{ url_for('thought_index', thought_key=thought)}}">
-                        <span class="yo">
-                            {{ thoughts[thought].title }}
-                        </span>
+<div class="fade_in_page_slower">
+    <div class="landing">
+        <div class="landing_heading ">
+            <h3>Al Miller III</h3>
+            <p>Towards holistic sustainability.</p>
+        </div>
+        <div class="links landing_links">
+            <div class="row">
+                <div class="column">
+                    <a href="./thoughts.html"><span>thoughts</span></a>
+                </div>
+                <div class="column">
+                    <a href="./portfolio.html"><span>portfolio</span></a>
+                </div>
+                <div class="column">
+                    <a href="./landingabout"><span>about</span></a>
+                </div>
+            </div>
+        </div>
+        <div class="landing_contact contact">
+            <div class="row">
+                <div class="column">
+                    <a href="https://www.linkedin.com/in/al-miller/">
+                        <i class="fa fa-linkedin icon"></i>
                     </a>
-                    <p>
-                        <i>
-                            {{ thoughts[thought].date }}
-                        </i>
-                    </p>
-                    {% endfor %}
+                </div>
+                <div class="column">
+                    <a href="https://www.github.com/ANMillerIII/">
+                        <i class="fa fa-github icon"></i>
+                    </a>
+                </div>
+                <div class="column">
+                    <a href="../static/assets/resume/resume.pdf" download="resume">
+                        <i class="fa fa-file-pdf-o icon"></i>
+                    </a>
+                </div>
+                <div class="column">
+                    <a href="mailto:albert.miller@uconn.edu">
+                        <i class="material-icons icon">&#xe0e1;</i>
+                    </a>
+                </div>
             </div>
         </div>
     </div>
