@@ -1,18 +1,27 @@
 html, body, .content, .sidebar {
-  /* overflow: scroll; */
-  /* overflow-x: hidden; */
-  
-  /* background-image: url('../assets/photos/pct/sadboy.jpg'); */
-  /* background-size: contain; */
   font-family: minerva modern;
   font-size: 12px;
   background-color: #e6dcd1 !important;
   color: #303a2c;
 }
 
+html::-webkit-scrollbar, body::-webkit-scrollbar, .content::-webkit-scrollbar, .sidebar::-webkit-scrollbar, .bottom_bar::-webkit-scrollbar {
+  display: none;
+}
 
-.project_thought_title {
-  width: 40%;
+/* Hide scrollbar for Chrome, Safari and Opera */
+
+.content::-webkit-scrollbar {
+  display: none;
+}
+
+/* Hide scrollbar for IE, Edge and Firefox */
+
+.content {
+  -ms-overflow-style: none;
+  /* IE and Edge */
+  scrollbar-width: none;
+  /* Firefox */
 }
 
 .thought_skills {
@@ -25,7 +34,7 @@ html, body, .content, .sidebar {
 
 .thoughts h2 {
   text-align: center;
-  margin-right: 50%;
+  margin-right: 39%;
   font-size: 18px;
   margin-top: -50px;
   margin-bottom: 40px;
@@ -35,29 +44,17 @@ html, body, .content, .sidebar {
   margin-top: 60px;
 }
 
-h3 {
-  min-height: 40px !important;
-}
-
-/* .links span, .thoughts span, .yo {
-  text-decoration: none;
-  background-image: linear-gradient(currentColor, currentColor);
-  background-position: 0 100%;
-  background-repeat: no-repeat;
-  background-size: 0% 1px;
-  transition: background-size cubic-bezier(0.25, 0.25, 0.25, 0.25) 0.25s;
-} */
-
 #cs_skills span {
   text-align: right !important;
   text-decoration: none;
   transition: none !important;
-  /* margin-left: 100px; */
+}
+
+h3 {
+  min-height: 40px !important;
 }
 
 .landing {
-  /* width: 200px;
-  height: 200px; */
   display: block;
   position: relative;
 }
@@ -85,64 +82,69 @@ h3 {
   z-index: 0;   
 } */
 
-
-/* .landing_links {
-  z-index: 9999;
-} */
 a {
   color: #303a2c !important;
 }
 
-html::-webkit-scrollbar, body::-webkit-scrollbar, .content::-webkit-scrollbar, .sidebar::-webkit-scrollbar, .bottom_bar::-webkit-scrollbar {
-  display: none;
-}
-
-/* Fade Animation */
-
 .landing_links {
+  margin-left: 300px !important;
   font-size: 12px !important;
-  /* margin-top: 8% !important; */
-  /* margin-left: -80% !important; */
+  margin-top: -50px !important;
 }
 
-span {}
+.landing_contact .column {
+  width: 5%;
+}
 
 .landing_contact {
-  /* margin-top: 8% !important; */
-  /* margin-left: -85% !important; */
+  margin-left: 410px !important;
+  margin-top: 50px !important;
 }
 
+.landing_links .column {
+  width: 10%;
+}
+
+/* .landing_links .column {
+  width: 5%;
+} */
+
 .landing {
-  /* background-image: url("../assets/photos/pct/sadboy.jpg");
-  background-color: rgb(230, 220, 209,0.4);
-  background-blend-mode: lighten; */
-  background-size: 1200px;
+  background-image: url("../assets/photos/pct/sadboy.jpg");
+  background-color: rgb(230, 220, 209, 0.25);
+  background-blend-mode: lighten;
+  background-size: 65%;
   background-repeat: no-repeat;
   margin-top: 0%;
-  margin-left: 15%;
+  margin-left: 21%;
   width: 100%;
   min-height: 900px;
   justify-content: center;
   text-align: center;
   font-family: minerva modern;
+  color: rgb(36, 20, 0) !important;
 }
+
 /* .landing_heading {
-  margin-top: 100px;
+  
+  margin-top: 1000px !imp0px;
 } */
+
 .landing_heading h3 {
+  padding: 2%;
   color: rgb(0, 0, 0) !important;
   font-size: 22px;
-  margin-top: 100px;
+  margin-top: 60px;
   margin-left: -80%;
+  align-items: center;
 }
 
-
 .landing_heading p {
-    color: black !important;
+  color: black !important;
   font-style: italic;
   font-size: 14px;
-  /* margin-top: -10px; */
   margin-left: -80%;
+  margin-top: -45px;
 }
 
 .fade_in_page_slower {
@@ -206,96 +208,19 @@ span {}
   }
 }
 
-/* The side navigation menu */
-
-/* .sidebar {
-  margin: 0;
-  padding: 0;
-  width: 200px;
-  background-color: #f1f1f1;
-  position: fixed;
-  height: 100%;
-  overflow: auto;
-} */
-
-/* Sidebar links */
-
-/* .sidebar a {
-  display: block;
-  color: black;
-  padding: 16px;
-  text-decoration: none;
-} */
-
-/* Active/current link */
-
-/* .sidebar a.active {
-  background-color: #4CAF50;
-  color: white;
-} */
-
-/* Links on mouse-over */
-
-/* .sidebar a:hover:not(.active) {
-  background-color: #555;
-  color: white;
-} */
-
-/* Page content. The value of the margin-left property should match the value of the sidebar's width property */
-
-/* div.content {
-  margin-left: 200px;
-  padding: 1px 16px;
-  height: 1000px;
-} */
-
-/* On screens that are less than 700px wide, make the sidebar into a topbar */
-
-/* @media screen and (max-width: 700px) {
-  .sidebar {
-    width: 100%;
-    height: auto;
-    position: relative;
-  }
-  .contact
-  .sidebar a {float: left; padding: 20px;}
-  div.content {margin-left: 0;}
-} */
-
-/* On screens that are less than 400px, display the bar vertically, instead of horizontally */
-
-/* @media screen and (max-width: 400px) {
-  .sidebar a {
-    text-align: center;
-    float: none;
-  }
-}
- */
-
 .gallery_pics_holder {
-  /* border: px solid green; */
-  /* width: 100%; */
   text-align: center;
   margin: 50px;
-  /* margin-bottom: 250px; */
-  /* height: 350px; */
 }
 
 .gallery_pics {
   display: inline-block;
-  /* width: 450px; */
-  /* height: 300px; */
   text-align: center;
-  /* margin: 300px; */
-  /* background-color: #3C0; */
 }
 
 .gallery_pics img {
   width: 60%;
   margin-left: 10%;
-  /* height: 100%; */
-  /* margin-top: 100px; */
-
 }
 
 .gallery_pics:hover {
@@ -322,15 +247,12 @@ span {}
 .gallery_pics.fullscreen {
   /* width: 200%;
   height: 200%; */
-
-
   /* z-index: 9999;
   position: absolute; */
   /* margin: 0 auto; */
   /* margin: 0; */
   /* width: 60%; */
   /* margin-left: -30%; */
-  
   /* height: 100%; */
   /* top: 5%;
   left: 5%; */
@@ -345,53 +267,6 @@ img:hover {
 img {
   /* transition: opacity 0.1s; */
 }
-
-/* #overlay {
-  position: fixed;
-  display: none;
-  width: 100%;
-  height: 100%;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-color: rgba(0, 0, 0, 0.5);
-  z-index: 2;
-  cursor: pointer;
-} */
-
-/* #myIm
-
-.content {
-  /* background-color: #eee;
-  width: 200px;
-  height: 100px;
-  border: 1px dotted black; */
-
-/* overflow-y: hidden; */
-
-/* Add the ability to scroll */
-
-}
-
-/* Hide scrollbar for Chrome, Safari and Opera */
-
-.content::-webkit-scrollbar {
-  display: none;
-}
-
-/* Hide scrollbar for IE, Edge and Firefox */
-
-.content {
-  -ms-overflow-style: none;
-  /* IE and Edge */
-  scrollbar-width: none;
-  /* Firefox */
-}
-
-/* .content {
-
-} */
 
 .thought_heading {
   margin-top: 10%;
@@ -430,7 +305,6 @@ img {
 #ytplayer {
   margin: auto;
   margin-top: 5% !important;
-  /* width: 60%; */
   margin-top: 3%;
   margin-left: 13%;
 }
@@ -448,21 +322,10 @@ img {
   border-radius: 50%;
 }
 
-/* Three image containers (use 25% for four, and 50% for two, etc) */
-
 .column {
   float: left;
-  width: 5%;
+  width: 25%;
 }
-
-/* .circle {
-  height: 50px;
-  width: 50px;
-  background-color: #eff2f7;
-  border-radius: 50%;
-  display: inline-block;
-  text-align: center;
-} */
 
 .icon {
   display: inline-block;
@@ -496,8 +359,6 @@ img {
   font-size: 14px !important;
 }
 
-/* Clear floats after image containers */
-
 .row::after {
   content: "";
   clear: both;
@@ -518,7 +379,6 @@ img {
 .contact {
   margin-top: 80px;
   margin-left: 65px;
-  /* margin-bottom: -500px; */
   width: 50%;
 }
 
@@ -543,16 +403,13 @@ img {
 
 .self_title p {
   font-style: italic;
-  margin-top: -10px;
+  margin-top: -25px;
 }
-
-/* The side navigation menu */
 
 .sidebar {
   margin: 0;
   padding: 0;
   width: 350px;
-  /* background-color: #f1f1f1; */
   position: fixed;
   height: 100%;
   overflow: hidden;
@@ -572,30 +429,18 @@ img {
   width: 60%;
 }
 
-/* Sidebar links */
-
 .sidebar a {
   display: block;
   color: black;
-  /* padding: 16px; */
   margin-top: 60px;
   text-decoration: none;
 }
-
-/* Page content. The value of the margin-left property should match the value of the sidebar's width property */
 
 div.content {
   margin-left: 350px;
   height: 1000px;
   overflow-x: hidden;
 }
-
-/* On screens that are less than 700px wide, make the sidebar into a topbar */
-
-/* @media screen and (orientation:portrait) { … }
-@media screen and (orientation:landscape) { … } */
-
-/* and (orientation:landscape) */
 
 @media screen and (max-width: 700px) {
   .sidebar {
@@ -606,11 +451,8 @@ div.content {
   .links {
     min-width: 200px !important;
     margin-top: -60px;
-    /* padding: 16; */
   }
   .contact {
-    /* margin-top: -60px; */
-    /* margin-left: 25%; */
     margin-left: 25%;
   }
   .column {
@@ -619,18 +461,8 @@ div.content {
   }
   .column a span {
     margin-top: 200px;
-    /* padding-left: 20px; */
   }
-  /* .column a {
-    
-    padding-left: 30px;
-  } */
-  .self_title p {
-    /* margin-bottom: -50px; */
-  }
-  /* .material-icons {
-    margin-left:
-  } */
+
   .self_title {
     justify-content: center;
     margin-left: 30%;
@@ -644,20 +476,9 @@ div.content {
   }
 }
 
-/* On screens that are less than 400px, display the bar vertically, instead of horizontally */
-
-/* @media screen and (max-width: 400px) {
-  .sidebar a {
-    text-align: center;
-    float: none;
-  }
-} */
-
 #thoughts_recap {
   margin-left: 70%;
   margin-top: 20%;
-  /* font-size: 4px !important;
-  color: rgb(97, 97, 97) !important; */
 }
 
 .links a:hover, .thoughts a:hover {
@@ -679,7 +500,6 @@ div.content {
 }
 
 .yo:active {
-  /* text-decoration:none; */
   text-decoration: underline;
 }
 
@@ -697,7 +517,6 @@ a:active {
   right: -10%;
   padding: 0;
   width: 350px;
-  /* background-color: #f1f1f1; */
   position: fixed;
   height: 100%;
   overflow: hidden;

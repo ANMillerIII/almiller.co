@@ -9,7 +9,7 @@ $(function () {
     $(document).scroll(function () {
         var $nav = $(".navbar-fixed-top");
         $nav.toggleClass('scrolled', $(this).scrollTop() > $nav.height());
-        console.log($(this).scrollTop(), $nav.height())
+        // console.log($(this).scrollTop(), $nav.height())
     });
 });
 
@@ -134,3 +134,13 @@ $(document).ready(function () {
     })
 
 });
+
+// $(document).ready(function() {
+//     $('.gallery_pics').click(function(e) {
+//       // Change Selector Here
+//       $(this).toggleClass('fullscreen');
+//     });
+//   });
+
+
+  

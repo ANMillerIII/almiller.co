@@ -197,10 +197,3 @@ def thoughts_index():
 def photography():
     images = os.listdir(os.path.join(app.static_folder, "./assets/photos/pct"))
     return render_template('photography.html', images=images)
-
-
-@app.route('/landingabout')
-def landing_about():
-    rule = 'landing'
-    return redirect('about.html') 
-    # return render_template('about.html', rule=rule)
