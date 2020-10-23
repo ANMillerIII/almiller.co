@@ -1,53 +1,68 @@
-## almiller.co
+# almiller.co
 
-Personal portfolio site for Al Miller.
+Portfolio site for Al Miller.
 
 [almiller.co](https://www.almiller.co)
 
 ## Purpose
 
-Static site to of Al Miller.
+Minimal personal site to aggregate projects and thoughts. Bare-bones structure.
 
-## Core Functionality
+## Installation
 
-Primary requirements:
+Clone repository
 
-1. Hosted static site with following pages:
-    - Index
-    - How it works
-    - Testimonials
-    - Get in touch
+```
+git clone https://github.com/ANMillerIII/almiller.co.git
+```
 
-2. Contact functionality, including:
-    - Take the leap email sign-up form on each page, which triggers AWS Lambda function to add person to subscriber database and sends them an email update, along with a modal
-    - Get in touch form, which does the same as above (though with more info)
+Instantiate and activate virtual environment
 
-3. No maintenance or uptime issues, no upkeep
-    - Don't touch it
+```
+py -m venv venv
 
-## Stack
+./venv/Scripts/activate.ps1
 
-Serverless static site.
+```
 
-Front-End:
+Install dependencies
 
-- Flask
-- jquery
-- Javascript
+```
+py -m pip install -r requirements.txt
+```
 
-Backend:
+Run Flask
 
-- Flask-Frozen to convert flask application to static site
-- S3 Storage for hosting static files
-- Cloud Delivery Network as a CDN (provides HTTPS certificate)
-- Google Analytics for site metrics
+```
+flask run
+```
 
-## Run
+## Deployment
 
-`./venv/Scripts/activate.ps1`
+Freeze site (output to 'build' directory)
 
-`flask run`
+```
+py freeze.py
+```
 
-## Other Aspects
+Freeze site (output to 'build' directory)
 
-Al also has a [Linkedin](https://www.linkedin.com/al-miller/).
+```
+aws s3 cp ./build s3://name-of-bucket/
+```
+
+Configure CloudFront deployment from AWS console
+
+## Built With
+
+* [Flask](https://flask.palletsprojects.com/en/1.1.x/) - Flask framework used.
+* [Frozen-Flask](https://pythonhosted.org/Frozen-Flask/) - Static deployment of Flask apps.
+* [AWS S3, CDN](https://aws.amazon.com/) - Site is deployed from S3 bucket via CloudFront.
+
+## Authors
+
+* **Al Miller** - [ANMillerIII](https://github.com/ANMillerIII)
+
+## License
+
+This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details

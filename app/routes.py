@@ -1,9 +1,12 @@
 from flask import render_template, redirect, url_for, request
 from app import app
+from datetime import datetime
 import random
 import os
-from datetime import datetime
 
+'''
+---------------------------------------Jinja Filter----------------------------------
+'''
 
 @app.template_filter('format_date_time')
 def format_datetime(value, format="%B %d, %Y"):
@@ -12,7 +15,10 @@ def format_datetime(value, format="%B %d, %Y"):
         return ""
     return value.strftime(format)
 
-###################################### data ######################################
+
+'''
+---------------------------------------Data----------------------------------
+'''
 
 thoughts = {
     "workingclass": {
@@ -132,14 +138,19 @@ other_projects = {
     },
 }
 
-###################################### index ######################################
+'''
+---------------------------------------Index----------------------------------
+'''
 
 
 @app.route("/")
 def index():
     return render_template("index.html")
 
-###################################### thoughts ######################################
+
+'''
+---------------------------------------Thoughts----------------------------------
+'''
 
 
 @app.route('/thoughts')
@@ -152,13 +163,17 @@ def thought_index():
 @app.route("/thought/<thought_key>.html")
 def thought(thought_key):
     thought = None
+    # Show three random articles to the side
     three_thoughts = {k: thoughts[k]
                       for k in random.choices(list(thoughts), k=3)}
     if thought_key in thoughts:
         thought = thoughts[thought_key]
     return render_template("thought.html", thought_key=thought_key, thought=thought, three_thoughts=three_thoughts)
 
-###################################### projects ######################################
+
+'''
+---------------------------------------Projects----------------------------------
+'''
 
 
 @app.route("/projects.html")
@@ -176,21 +191,18 @@ def project(project_key):
         project = other_projects[project_key]
     return render_template("projects.html", project_key=project_key, project=project)
 
-
-@app.route('/project/photography.html')
-def photography():
-    images = os.listdir(os.path.join(app.static_folder, "./assets/photos/pct"))
-    return render_template('photography.html', images=images)
-
-###################################### about ######################################
-
+'''
+---------------------------------------About----------------------------------
+'''
 
 @app.route('/about')
 @app.route('/about.html')
 def about():
     return render_template('about.html', title='about', thoughts=thoughts)
 
-###################################### redirects ######################################
+'''
+---------------------------------------Redirects----------------------------------
+'''
 
 
 @app.route('/thought/about.html')
