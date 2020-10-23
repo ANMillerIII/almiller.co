@@ -1,25 +1,41 @@
 {% extends "layout.html" %}
-{% block title %}{{project.title}}{% endblock %}
+{% block title %}projects{% endblock %}
 {% block content %}
-<div class="content fade_in_page">
-    {% if project %}
-    <div class="thought_heading">
-        <h5 class="thought_title">
-            {{ project.title }}
-        </h5>
-        <p class="thought_date">
-            {{ project.date|format_date_time }}
-        </p>
-    </div>
-    <div class="thought_body fade_in_page_slower">
-        {% if project.skills %}
-        <p><i> {{project.skills}} </i></p>
-        <br>
-        {% endif %}
-        <p>{{ project.text | safe}}</p>
-        {% else %}
-        <p>{{ project_key }} was not found.</p>
-        {% endif %}
+<div class="fade_in_page">
+    <div class="content">
+        <div class="project_index">
+            <h2>Computer Science</h2>
+            {% for cs_project in cs_projects %}
+            <h3>
+                <a href="{{ url_for('project', project_key=cs_project)}}">
+                    <span class="project_title">
+                        {{ cs_projects[cs_project].title }}
+                    </span>
+                </a>
+                <p class="project_dates">
+                    <i>
+                        {{ cs_projects[cs_project].date|format_date_time }}
+                    </i>
+                </p>
+                <div class="project_skills"><i>{{cs_projects[cs_project].skills}}</i></div>
+                {% endfor %}
+        </div>
+        <div class="project_index" id="other_title">
+            <h2>Other</h2>
+            {% for other_project in other_projects %}
+            <h3>
+                <a href="{{ url_for('project', project_key=other_project)}}">
+                    <span class="project_title">
+                        {{ other_projects[other_project].title }}
+                    </span>
+                </a>
+                <p>
+                    <i>
+                        {{ other_projects[other_project].date|format_date_time }}
+                    </i>
+                </p>
+                {% endfor %}
+        </div>
     </div>
 </div>
 {% endblock %}

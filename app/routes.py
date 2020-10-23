@@ -1,7 +1,10 @@
 from flask import render_template, redirect, url_for, request
 from app import app
-import random, os
+import random
+import os
 from datetime import datetime
+
+
 @app.template_filter('format_date_time')
 def format_datetime(value, format="%B %d, %Y"):
     """Format a date time to (Default): d Mon YYYY HH:MM P"""
@@ -9,12 +12,7 @@ def format_datetime(value, format="%B %d, %Y"):
         return ""
     return value.strftime(format)
 
-# @app.template_filter('strftime')
-# def _jinja2_filter_datetime(date, fmt=None):
-#     date = dateutil.parser.parse(date)
-#     native = date.replace(tzinfo=None)
-#     format='%b %d, %Y'
-#     return native.strftime(format) 
+###################################### data ######################################
 
 thoughts = {
     "workingclass": {
@@ -134,28 +132,43 @@ other_projects = {
     },
 }
 
+###################################### index ######################################
+
 
 @app.route("/")
 def index():
-    # image = os.listdir(os.path.join(app.static_folder, "./assets/photos/pct/sadboy.jpg"))
     return render_template("index.html")
+
+###################################### thoughts ######################################
+
+
+@app.route('/thoughts')
+@app.route('/thoughts.html')
+def thought_index():
+    return render_template("thoughts.html", thoughts=thoughts)
+
 
 @app.route("/thought/<thought_key>")
 @app.route("/thought/<thought_key>.html")
-def thought_index(thought_key):
+def thought(thought_key):
     thought = None
-    three_thoughts = {k: thoughts[k] for k in random.choices(list(thoughts), k=3)}
+    three_thoughts = {k: thoughts[k]
+                      for k in random.choices(list(thoughts), k=3)}
     if thought_key in thoughts:
         thought = thoughts[thought_key]
     return render_template("thought.html", thought_key=thought_key, thought=thought, three_thoughts=three_thoughts)
 
-@app.route("/portfolio.html")
-def portfolio():
-    return render_template("portfolio.html", cs_projects=cs_projects, other_projects=other_projects)
+###################################### projects ######################################
 
-@app.route("/portfolio/<project_key>")
-@app.route("/portfolio/<project_key>.html")
-def portfolio_index(project_key):
+
+@app.route("/projects.html")
+def project_index():
+    return render_template("projects.html", cs_projects=cs_projects, other_projects=other_projects)
+
+
+@app.route("/project/<project_key>")
+@app.route("/project/<project_key>.html")
+def project(project_key):
     project = None
     if project_key in cs_projects:
         project = cs_projects[project_key]
@@ -163,37 +176,36 @@ def portfolio_index(project_key):
         project = other_projects[project_key]
     return render_template("projects.html", project_key=project_key, project=project)
 
-@app.route('/about')
-@app.route('/about.html')
-def about():
-    rule = request.url_rule
-    dat = request.data
-    print(dat)
-    return render_template('about.html', title='about', thoughts=thoughts)
 
-@app.route('/thought/about.html')
-@app.route('/portfolio/about.html')
-def redirect_about():
-    return redirect(url_for('about'))
-
-@app.route('/portfolio/portfolio.html')
-@app.route('/thought/portfolio.html')
-def redirect_portfolio():
-    return redirect(url_for('portfolio'))
-
-@app.route('/portfolio/thoughts.html')
-@app.route('/thought/thoughts.html')
-def redirect_thoughts_index():
-    return redirect(url_for('thoughts_index'))
-
-@app.route('/thoughts')
-@app.route('/thoughts.html')
-def thoughts_index():
-    return render_template("thoughts.html", thoughts=thoughts)
-
-
-
-@app.route('/portfolio/photography.html')
+@app.route('/project/photography.html')
 def photography():
     images = os.listdir(os.path.join(app.static_folder, "./assets/photos/pct"))
     return render_template('photography.html', images=images)
+
+###################################### about ######################################
+
+
+@app.route('/about')
+@app.route('/about.html')
+def about():
+    return render_template('about.html', title='about', thoughts=thoughts)
+
+###################################### redirects ######################################
+
+
+@app.route('/thought/about.html')
+@app.route('/project/about.html')
+def redirect_about():
+    return redirect(url_for('about'))
+
+
+@app.route('/projects/project.html')
+@app.route('/thought/project.html')
+def redirect_projects():
+    return redirect(url_for('projects'))
+
+
+@app.route('/projects/thoughts.html')
+@app.route('/thought/thoughts.html')
+def redirect_thoughts_index():
+    return redirect(url_for('thoughts_index'))

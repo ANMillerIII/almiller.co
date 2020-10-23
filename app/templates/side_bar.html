@@ -1,19 +1,27 @@
 {% set active_page = request.path %}
-<div class='{{"sidebar fade_in_page_slower" if rule=="./thoughts/landing.html" else "sidebar"}}'>
+<div class="sidebar">
 
-  <!-- <li > -->
 
   <div class="self_title">
-    <h3>Al Miller III</h3>
+    <h3>
+      <a href="{{ url_for('index') }}">
+        <span>        
+        Al Miller III
+      </span>
+      </a>
+    </h3>
     <p>Towards holistic sustainability.</p>
   </div>
   <div class="side_bar_top_margin"></div>
   <div class="links">
-    <a href="./thoughts.html" {% if active_page == '/thoughts.html'  %}style="text-decoration: underline !important;"
+    <a href="{{ url_for('thought_index') }}"
+      {% if active_page == '/thoughts.html'  %}style="text-decoration: underline !important;"
       {% endif %}><span>thoughts</span></a>
-    <a href="./portfolio.html" {% if active_page == '/portfolio.html'  %}style="text-decoration: underline !important;"
+    <a href="{{ url_for('project_index') }}"
+      {% if active_page == '/projects.html'  %}style="text-decoration: underline !important;"
       {% endif %}><span>portfolio</span></a>
-    <a href="./about.html" {% if active_page == '/about.html'  %}style="text-decoration: underline !important;"
+    <a href="{{ url_for('about') }}"
+      {% if active_page == '/about.html'  %}style="text-decoration: underline !important;"
       {% endif %}><span>about</span></a>
   </div>
   <div class="contact">

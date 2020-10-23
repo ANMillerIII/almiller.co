@@ -1,29 +1,28 @@
 {% extends "layout.html" %}
-{% block title %}Index{% endblock %}
+{% block title %}index{% endblock %}
 {% block side_bar %}
 {% endblock %}
 {% block content %}
-<div class="fade_in_page_slower">
-    <div class="landing">
-        <div class="landing_heading ">
-            <div class="marg"></div>
+<div class="fade_in_page">
+    <div class="index">
+        <div class="index_heading ">
             <h3>Al Miller III</h3>
             <p>Towards holistic sustainability.</p>
         </div>
-        <div class="links landing_links">
+        <div class="links">
             <div class="row">
                 <div class="column">
-                    <a href="./thoughts.html"><span>thoughts</span></a>
+                    <a href="{{ url_for('thought_index') }}"><span>thoughts</span></a>
                 </div>
                 <div class="column">
-                    <a href="./portfolio.html"><span>portfolio</span></a>
+                    <a href="{{ url_for('project_index') }}"><span>portfolio</span></a>
                 </div>
                 <div class="column">
-                    <a href="./landingabout"><span>about</span></a>
+                    <a href="{{ url_for('about') }}"><span>about</span></a>
                 </div>
             </div>
         </div>
-        <div class="landing_contact contact">
+        <div class="index_contact">
             <div class="row">
                 <div class="column">
                     <a href="https://www.linkedin.com/in/al-miller/">
