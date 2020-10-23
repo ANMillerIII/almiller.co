@@ -1,3 +1,24 @@
+@font-face {
+    font-family: 'Recoleta-Black';
+    src: url('../assets/fonts/Recoleta/Recoleta-Black.eot'), url('../assets/fonts/Recoleta/Recoleta-Black.ttf') format('truetype'), url('../assets/fonts/Recoleta/Recoleta-Black.svg') format('svg');
+    font-weight: normal;
+    font-style: normal;
+  }
+  
+  @font-face {
+    font-family: 'Recoleta-Medium';
+    src: url('../assets/fonts/Recoleta/Recoleta-Medium.eot'), url('../assets/fonts/Recoleta/Recoleta-Medium.ttf') format('truetype'), url('../assets/fonts/Recoleta/Recoleta-Medium.svg') format('svg');
+    font-weight: normal;
+    font-style: normal;
+  }
+  
+  @font-face {
+    font-family: 'Recoleta-Regular';
+    src: url('../assets/fonts/Recoleta/Recoleta-Regular.eot'), url('../assets/fonts/Recoleta/Recoleta-Regular.ttf') format('truetype'), url('../assets/fonts/Recoleta/Recoleta-Regular.svg') format('svg');
+    font-weight: normal;
+    font-style: normal;
+  }
+
 /* Global */
 
 html, body, * {

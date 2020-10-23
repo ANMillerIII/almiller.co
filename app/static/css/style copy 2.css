@@ -1,16 +1,3 @@
-/* Global */
-
-html, body, .content, .sidebar {
-  font-family: Garamond !important;
-  background-color: #ffffff !important;
-  font-size: 12px;
-}
-
-/* Hide scrollbar */
-
-html::-webkit-scrollbar, body::-webkit-scrollbar, .content::-webkit-scrollbar, .sidebar::-webkit-scrollbar {
-  display: none;
-}
 
 .content {
   -ms-overflow-style: none;
@@ -60,6 +47,8 @@ h3 {
   position: relative;
 }
 
+
+
 .landing_links {
   margin-left: 300px !important;
   font-size: 12px !important;
@@ -91,6 +80,7 @@ h3 {
   min-height: 900px;
   justify-content: center;
   text-align: center;
+  font-family: minerva modern;
   color: rgb(36, 20, 0) !important;
 }
 
@@ -110,6 +100,7 @@ h3 {
   margin-left: -80%;
   margin-top: -45px;
 }
+
 
 .fade_in_page {
   animation: fadeIn ease 1s;
@@ -168,7 +159,6 @@ h3 {
   text-align: center;
   margin: 50px;
 }
-
 .thought_heading {
   margin-top: 10%;
   margin-left: 50%;

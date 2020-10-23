@@ -6,7 +6,7 @@ Portfolio site for Al Miller.
 
 ## Purpose
 
-Minimal personal site to aggregate projects and thoughts. Bare-bones structure.
+Minimalistic site to aggregate personal projects and thoughts.
 
 ## Installation
 
@@ -65,4 +65,4 @@ Configure CloudFront deployment from AWS console
 
 ## License
 
-This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
+This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details.
