@@ -7,10 +7,12 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
+        <!-- Styles -->
         <link rel="stylesheet" href="https://necolas.github.io/normalize.css/8.0.1/normalize.css"
             crossorigin="anonymous" />
         <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
 
+        <!-- Contact links -->
         <link rel="stylesheet"
             href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
@@ -23,13 +25,13 @@
             window.dataLayer = window.dataLayer || [];
             function gtag() { dataLayer.push(arguments); }
             gtag('js', new Date());
-
             gtag('config', 'G-JXNHMQ5QNH');
         </script>
         {% endblock %}
     </head>
 
     <body>
+        <!-- p5.js imports for tree -->
         <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.5.6/p5.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.5.6/addons/p5.dom.min.js"></script>
         <script src="{{ url_for('static', filename='./js/main.js') }}"></script>
