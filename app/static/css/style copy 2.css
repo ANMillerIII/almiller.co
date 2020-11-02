@@ -1,16 +1,3 @@
-/* Global */
-
-html, body, .content, .sidebar {
-  font-family: Garamond !important;
-  font-size: 12px;
-  background-color: #ffffff !important;
-}
-
-/* Hide scrollbar */
-
-html::-webkit-scrollbar, body::-webkit-scrollbar, .content::-webkit-scrollbar, .sidebar::-webkit-scrollbar, .bottom_bar::-webkit-scrollbar {
-  display: none;
-}
 
 .content {
   -ms-overflow-style: none;

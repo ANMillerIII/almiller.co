@@ -1,5 +1,67 @@
+/* MODAL */
+/* The Modal (background) */
+.modal {
+  display: none;
+  /* Hidden by default */
+  position: fixed;
+  /* Stay in place */
+  z-index: 1;
+  /* Sit on top */
+  padding-top: 100px;
+  /* Location of the box */
+  left: 0;
+  top: 0;
+  width: 100%;
+  /* Full width */
+  height: 100%;
+  /* Full height */
+  overflow: auto;
+  /* Enable scroll if needed */
+  background-color: rgb(0, 0, 0);
+  /* Fallback color */
+  background-color: rgba(0, 0, 0, 0.4);
+  /* Black w/ opacity */
+}
+
+/* Modal Content */
+.modal-content {
+  background-color: #fefefe;
+  margin: auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%;
+}
+
+/* The Close Button */
+.close {
+  color: #aaaaaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+#myBtn {
+  max-width: 40px;
+  border: none;
+  fill: none;
+  background: none;
+  cursor: pointer;
+  padding: 0;
+}
+
+
+
+
 * {
   font-family: Garamond;
+  overflow: hidden;
   color: black;
 }
 
@@ -19,13 +81,14 @@ canvas {
 /* Fade transition */
 
 .fade_in_page {
-  animation: fadeIn ease 4s;
-  -webkit-animation: fadeIn ease 4s;
-  -moz-animation: fadeIn ease 4s;
-  -o-animation: fadeIn ease 4s;
-  -ms-animation: fadeIn ease 4s;
-  /* Delay until tree has grown */
-  animation-delay: 9.5s !important;
+  opacity: 0;
+  animation: fadeIn ease 4s forwards;
+  -webkit-animation: fadeIn ease 4s forwards;
+  -moz-animation: fadeIn ease 4s forwards;
+  -o-animation: fadeIn ease 4s forwards;
+  -ms-animation: fadeIn ease 4s forwards;
+  /* animation-fill-mode:forwards; */
+  /* animation-delay: 9.5s; */
 }
 
 @keyframes fadeIn {
@@ -88,7 +151,7 @@ canvas {
   height: 100%;
   width: 100%;
   grid-template-rows: repeat(3, 1fr);
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: 1fr 5fr 1fr;
   /* margin-right: -1000px !important; */
 }
 
@@ -96,13 +159,13 @@ canvas {
 
 #name {
   /* text-align: left; */
-  font-size: 2vw;
+  font-size: calc(20px + 0.9vw);
 }
 
 #subtitle {
+  font-size: calc(15px + 0.3vw);
   text-align: right;
-  /* max-width: 350px; */
-  margin-top: -30px;
+  margin-top: -25px;
 }
 
 .landing_heading {
@@ -110,28 +173,93 @@ canvas {
   justify-self: center !important;
   align-self: top !important;
   grid-row: 1;
-  grid-column: 3;
+  /* grid-column: 3; */
+  grid-column: 2;
   text-align: center;
 }
 
 .landing_contact_links {
   display: inline-flex;
-  align-self: top !important;
+  /* align-self: top !important; */
+  align-self: bottom !important;
+  /* margin-top: 2vw; */
+  margin-top: 210px;
   justify-self: center !important;
-  grid-column: 3;
+  grid-column: 2;
   grid-row: 3;
 }
 
+/* Landing about */
+
+.landing_about {
+  align-self: top !important;
+  justify-self: center !important;
+  grid-column: 3;
+  grid-row: 2;
+}
+
+.landing_about li {
+  
+  list-style: none;
+  text-indent: 0;
+  margin-left: -100px;
+}
+
+.landing_about span {
+  display: inline;
+  margin-left: 100px;
+}
 /* Contact icon links */
 
 .icon {
-  font-size: calc(12px + 0.6vw) !important;
+  font-size: calc(13px + 0.6vw) !important;
   transition: color 0.4s;
-  color: black !important;
+  /* color: black !important; */
   margin-left: 30px;
 }
 
 .material-icons {
-  font-size: calc(12px + 0.6vw);
-  color: black !important;
+  font-size: calc(12px + 0.8vw) !important;
+  margin-top: -2px;
+  /* color: black !important; */
+}
+
+.fa-user-circle:hover {
+  color: rgb(179, 54, 54);
+  transition: color 0.4s;
+}
+
+.fa-linkedin-in:hover {
+  color: rgb(157, 54, 54);
+  transition: color 0.4s;
+}
+
+.fa-github:hover {
+  color: rgb(137, 54, 54);
+  transition: color 0.4s;
+}
+
+.fa-file-pdf-o:hover {
+  color: rgb(106, 54, 54);
+  transition: color 0.4s;
+}
+
+.material-icons:hover {
+  color: rgb(79, 54, 54);
+  transition: color 0.4s;
+}
+
+
+@media screen and (max-height: 330px) {
+  .landing_contact_links {
+    margin-top: 10%;
+    /* margin-left: -15%; */
+  }
+}
+
+@media screen and (max-width: 350px) {
+  .landing_contact_links {
+    margin-top: 60%;
+    margin-left: -15%;
+  }
 }

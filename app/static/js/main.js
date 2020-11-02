@@ -21,11 +21,6 @@ setup();
 function setup() {
 	// Set canvas dimensions based on screen size
 	createCanvas(window.innerWidth, window.innerHeight);
-
-	// Place tree seed on canvas
-	input_seed = createInput(randSeed);
-	input_seed.style('width', '50px')
-
 	readInputs(false);
 	startGrow();
 }
@@ -36,28 +31,39 @@ function windowResized() {
 }
 
 function readInputs(updateTree) {
-	console.log("in read inputs")
 	// Set tree parameters
-	size = 150; // to 200
+	// size = 155;
+	size = windowHeight / 6;
 	maxLevel = 13;
-	rot = PI/8.5; //Pi/2
-	lenRand = 1; //0.5
+	rot = PI / 8.5;
+	lenRand = 1;
 	branchProb = 0.9;
-	rotRand = 0.2;
-	leafProb = 0.5;
+	rotRand = 0.3;
+	leafProb = 0.9;
 }
 
 function draw() {
+	// draw tree
 	stroke(0, 0, 0);
 	background(255, 255, 255);
-	translate(width / 3, height);
+	translate(width / 2, height);
 	scale(1, -1);
-	translate(0, 20);
+	if (width < 400) {
+		translate(2, 150);
+		size = windowHeight / 9;
+	} else if (width > 500 && height < 400) {
+		translate(20, 100);
+		size = windowHeight / 11;
+
+	} else {
+		translate(20, 120);
+	}
 	branch(1, randSeed);
 	noLoop();
 }
 
 function branch(level, seed) {
+	// draw branches
 	if (prog < level)
 		return;
 
@@ -68,13 +74,12 @@ function branch(level, seed) {
 
 	var growthLevel = (prog - level > 1) || (prog >= maxLevel + 1) ? 1 : (prog - level);
 
-	strokeWeight(4 * Math.pow((maxLevel - level + 1) / maxLevel, 2));
+	strokeWeight(5 * Math.pow((maxLevel - level + 1) / maxLevel, 2));
 
 	var len = growthLevel * size * (1 + rand2() * lenRand);
 
 	line(0, 0, 0, len / level);
 	translate(0, len / level);
-
 
 	var doBranch1 = rand() < branchProb;
 	var doBranch2 = rand() < branchProb;
@@ -100,21 +105,58 @@ function branch(level, seed) {
 		}
 	}
 
+	// draw leaves
+	let leafPoints = [];
+	let ratio = (width+height)/(1300+1300);
+
+	leafPoints = [
+		createVector(20*ratio, 5*ratio), //top
+		createVector(10*ratio, 20*ratio),//left
+		createVector(20*ratio, 35*ratio),//bottom
+		createVector(30*ratio, 20*ratio) //right
+
+	];
+	// leafPoints = [
+	// 	createVector(20, 5), //top
+	// 	createVector(10, 20),//left
+	// 	createVector(20, 35),//bottom
+	// 	createVector(30, 20) //right
+
+	// ];
 	if ((level >= maxLevel || (!doBranch1 && !doBranch2)) && doLeaves) {
-		var p = Math.min(1, Math.max(0, prog - level));
-
-		var flowerSize = (size / 100) * p * (1 / 6) * (len / level);
-
-		strokeWeight(1);
-		// Change leaf color here!
-		stroke(240 + 15 * rand2(), 20 + 15 * rand2(), 20 + 15 * rand2());
-
-		rotate(-PI);
-		for (var i = 0; i <= 8; i++) {
-			line(0, 0, 0, flowerSize * (1 + 0.5 * rand2()));
-			rotate(2 * PI / 8);
-		}
+		draw_leaf(leafPoints);
 	}
+}
+
+function draw_leaf(points) {
+	curveTightness(-0.2);
+	noStroke();
+	fill(128 + 45 * rand2(), 0 + 45 * rand2(), 15 + 45 * rand2());
+
+	let p1 = p5.Vector.lerp(points[1], points[2], 0.5);
+	let p1_reverse = p5.Vector.lerp(points[3], points[2], 0.5);
+	let p2 = p5.Vector.lerp(points[0], points[2], 0.95);
+	let p23 = p5.Vector.lerp(points[2], points[3], 0.75);
+	let p23_reverse = p5.Vector.lerp(points[2], points[1], 0.75);
+	let p3 = p5.Vector.lerp(points[1], p23, 0.95)
+	let p3_reverse = p5.Vector.lerp(points[3], p23_reverse, 0.95);
+	let p4 = p5.Vector.lerp(points[3], points[0], 0.8);
+	let p4_reverse = p5.Vector.lerp(points[1], points[0], 0.8);
+	let p_5 = p5.Vector.lerp(p4, points[1], 0.09);
+	let p_5_reverse = p5.Vector.lerp(p4_reverse, points[3], 0.09);
+	let p6 = p5.Vector.lerp(points[0], points[2], 0.05);
+
+	beginShape();
+	curveVertex(p1.x, p1.y);
+	curveVertex(p2.x, p2.y);
+	curveVertex(p3.x, p3.y);
+	curveVertex(p_5.x, p_5.y);
+	vertex(p6.x, p6.y);
+	curveVertex(p_5_reverse.x, p_5_reverse.y);
+	curveVertex(p3_reverse.x, p3_reverse.y);
+	curveVertex(p2.x, p2.y);
+	curveVertex(p1_reverse.x, p1_reverse.y);
+	endShape();
 }
 
 function startGrow() {
@@ -140,7 +182,6 @@ function grow() {
 	prog += maxLevel / 8 * Math.max(diff, 20) / 1000;
 	setTimeout(grow, Math.max(1, 20 - diff));
 }
-
 
 // Generate random values used for tree parameters
 
