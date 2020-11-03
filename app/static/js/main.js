@@ -56,7 +56,7 @@ function draw() {
 		size = windowHeight / 11;
 
 	} else {
-		translate(20, 120);
+		translate(18, 120);
 	}
 	branch(1, randSeed);
 	noLoop();
@@ -107,22 +107,17 @@ function branch(level, seed) {
 
 	// draw leaves
 	let leafPoints = [];
-	let ratio = (width+height)/(1300+1300);
+	// Set ratio for screen size
+	let ratio = (width + height) / (1300 + 1300);
 
 	leafPoints = [
-		createVector(20*ratio, 5*ratio), //top
-		createVector(10*ratio, 20*ratio),//left
-		createVector(20*ratio, 35*ratio),//bottom
-		createVector(30*ratio, 20*ratio) //right
+		createVector(20 * ratio, 5 * ratio), //top
+		createVector(10 * ratio, 20 * ratio),//left
+		createVector(20 * ratio, 35 * ratio),//bottom
+		createVector(30 * ratio, 20 * ratio) //right
 
 	];
-	// leafPoints = [
-	// 	createVector(20, 5), //top
-	// 	createVector(10, 20),//left
-	// 	createVector(20, 35),//bottom
-	// 	createVector(30, 20) //right
 
-	// ];
 	if ((level >= maxLevel || (!doBranch1 && !doBranch2)) && doLeaves) {
 		draw_leaf(leafPoints);
 	}
@@ -131,7 +126,10 @@ function branch(level, seed) {
 function draw_leaf(points) {
 	curveTightness(-0.2);
 	noStroke();
-	fill(128 + 45 * rand2(), 0 + 45 * rand2(), 15 + 45 * rand2());
+
+	// Set leaf color
+	// fill(128 + 45 * rand2(), 0 + 45 * rand2(), 15 + 45 * rand2());
+	fill(128 + 45 * rand2(), 20 + 45 * rand2(), 15 + 45 * rand2());
 
 	let p1 = p5.Vector.lerp(points[1], points[2], 0.5);
 	let p1_reverse = p5.Vector.lerp(points[3], points[2], 0.5);

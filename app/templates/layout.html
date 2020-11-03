@@ -3,23 +3,25 @@
 
     <head>
         {% block head %}
-        <title>Al Miller</title>
+        <title>Al Miller III</title>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <!-- Styles -->
+        <!-- Icon -->
+        <link rel="shortcut icon" type="image/x-icon" href="{{ url_for('static', filename='assets/favicon.svg') }}">
+
+        <!-- Global styles -->
         <link rel="stylesheet" href="https://necolas.github.io/normalize.css/8.0.1/normalize.css"
             crossorigin="anonymous" />
         <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
 
-        <!-- Contact links -->
+        <!-- Contact links (FA and Material icons-->
         <link rel="stylesheet"
             href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.13.0/css/all.css">
 
         <script src="{{ url_for('static', filename='./js/mailgo.min.js') }}" defer></script>
-        <!-- <script src="https://use.fontawesome.com/dba9a41a37.js"></script> -->
-        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.13.0/css/all.css">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
 
@@ -31,7 +33,6 @@
             gtag('js', new Date());
             gtag('config', 'G-JXNHMQ5QNH');
         </script>
-
         {% endblock %}
     </head>
 
@@ -39,37 +40,18 @@
         <!-- p5.js imports for tree -->
         <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.5.6/p5.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.5.6/addons/p5.dom.min.js"></script>
+
+        <!-- mailgo import -->
+        <script src="{{ url_for('static', filename='./js/mailgo.min.js') }}" defer></script>
+
+        <!-- local JS imports for tree and modal -->
+        <script src="{{ url_for('static', filename='./js/main.js') }}"></script>
+
         {% block content %}
         {% endblock %}
-        <script>window.globalVar = false;</script>
-        <script>// Get the modal
-            var modal = document.getElementById("myModal");
-            // Get the button that opens the modal
-            var btn = document.getElementById("myBtn");
-            // Get the <span> element that closes the modal
-            var span = document.getElementsByClassName("close")[0];
-            // When the user clicks the button, open the modal 
-            btn.onclick = function () {
-                window.globalVar = true;
-                modal.style.display = "block";
-                console.log(window.globalVar)
-            }
-            // When the user clicks on <span> (x), close the modal
-            span.onclick = function () {
-                window.globalVar = false;
-                modal.style.display = "none";
-            }
-            // When the user clicks anywhere outside of the modal, close it
-            window.onclick = function (event) {
-                if (event.target == modal) {
-                    window.globalVar = false;
-                    modal.style.display = "none";
-                }
-            }
-
-        </script>
-
-        <script src="{{ url_for('static', filename='./js/main.js') }}"></script>
+        
+        <script src="{{ url_for('static', filename='./js/modal.js') }}"></script>
+        <script src="{{ url_for('static', filename='./js/typeWriter.js') }}"></script>
     </body>
 
 </html>
