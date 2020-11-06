@@ -1,5 +1,10 @@
 * {
-  font-family: Garamond;
+
+  /* font-family: Arial, Helvetica, sans-serif; */
+  /* font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; */
+  font-family: 'Courier New', Courier, monospace;
+  /* font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif; */
+  /* font-family: garamond; */
   overflow: hidden;
   color: black;
 }
@@ -7,6 +12,7 @@
 /* Modal styles */
 
 .modal {
+  will-change: transform !important;
   display: none;
   position: fixed;
   z-index: 1;
@@ -25,23 +31,29 @@
 .modalContent {
   background-color: #fefefe;
   margin: auto;
-  padding: 20px;
+  /* padding: 70px; */
   border: 1px solid #888;
-  max-width: 75%;
+  max-width: 45%;
+}
+
+.modalContent {
+  font-size: calc(11px + 0.1vw) !important;
 }
 
 /* The Close Button */
 
-.close {
+.closeModal {
   color: #aaaaaa;
   float: right;
-  font-size: 28px;
+  font-size: calc(20px + 0.5vw) !important;
   font-weight: bold;
+  /* padding: 0 !important; */
 }
 
-.close:hover, .close:focus {
+.closeModal:hover, .closeModal:focus {
   color: #000;
   text-decoration: none;
+  cursor: pointer;
 }
 
 /* Hide scrollbar */
@@ -66,7 +78,26 @@ canvas {
   -moz-animation: fadeIn ease 4s forwards;
   -o-animation: fadeIn ease 4s forwards;
   -ms-animation: fadeIn ease 4s forwards;
-  animation-delay: 9.5s;
+  animation-delay: 9.25s;
+}
+
+.fade_in_page_after {
+  opacity: 0;
+  animation: fadeIn ease 4s forwards;
+  -webkit-animation: fadeIn ease 4s forwards;
+  -moz-animation: fadeIn ease 4s forwards;
+  -o-animation: fadeIn ease 4s forwards;
+  -ms-animation: fadeIn ease 4s forwards;
+  animation-delay: 10.3s;
+}
+
+.rapid_fade_in {
+  opacity: 0;
+  animation: fadeIn ease 2.2s forwards;
+  -webkit-animation: fadeIn ease 2.2s forwards;
+  -moz-animation: fadeIn ease 2.2s forwards;
+  -o-animation: fadeIn ease 2.2s forwards;
+  -ms-animation: fadeIn ease 2.2s forwards;
 }
 
 @keyframes fadeIn {
@@ -135,13 +166,15 @@ canvas {
 /* Self title */
 
 #name {
-  font-size: calc(24px + 0.9vw);
+  font-size: calc(24px + 1.2vw);
+  margin-bottom: 0 !important;
 }
 
 #subtitle {
-  font-size: calc(12px + 0.3vw);
+  font-size: calc(11px + 0.3vw);
   text-align: right;
-  margin-top: -35px;
+  margin-top: -4px !important;
+  /* margin-top: -55px; */
 }
 
 .landing_heading {
@@ -155,8 +188,8 @@ canvas {
 
 .landing_contact_links {
   display: inline-flex;
-  align-self: bottom;
-  margin-top: 210px;
+  align-self: top;
+  margin-top: 170px;
   justify-self: center;
   grid-column: 2;
   grid-row: 3;
@@ -165,17 +198,27 @@ canvas {
 /* Landing about */
 
 .landing_about {
-  grid-column-gap: 15px;
+  /* grid-column-gap: 15px;
   grid-row-gap: 10px;
   display: grid;
   grid-template-columns: 1fr 1fr;
-  grid-template-rows: repeat(auto-fit, minmax(min-content, max-content));
+  grid-template-rows: repeat(auto-fit, minmax(min-content, max-content)); */
+
+
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  padding-right: 150px;
+  padding-left: 150px;
+  /* margin: 50px; */
+
 }
 
 .landing_about_heading {
   text-align: left;
   justify-self: center;
   align-self: center;
+  padding-top: 50px;
 }
 
 .landing_about_item {
@@ -225,8 +268,8 @@ canvas {
 }
 
 .material-icons {
-  font-size: calc(12px + 0.8vw);
-  margin-top: -2px;
+  font-size: calc(15px + 0.6vw) !important;
+  /* margin-top: -3px; */
 }
 
 .fa-user-circle:hover {
@@ -254,29 +297,51 @@ canvas {
   transition: color 0.4s;
 }
 
-@media screen and (max-height: 330px) {
+#last_landing_about_item {
+  padding-bottom: 80px;
+  /* margin: 30px;
+  padding: 20px; */
+}
+
+@media screen and (max-height: 340px) {
   .landing_contact_links {
     margin-top: 10%;
+    margin-left: 3%;
+    padding: 5px;
   }
   #subtitle {
-    margin-top: -35px;
+    text-align: center;
   }
   .landing_about {
     display: block;
     grid-auto-flow: row dense
   }
+
+  .modalContent {
+    max-width: 75%;
+  }
+
+  .landing_about {
+    padding-right: 50px;
+    padding-left: 50px;
+  }
 }
 
 @media screen and (max-width: 350px) {
   .landing_contact_links {
-    margin-top: 60%;
-    margin-left: -15%;
-  }
-  #subtitle {
-    margin-top: -35px;
+    padding: 5px;
+    margin-top: 40%;
+    margin-left: -8%;
   }
   .landing_about {
     display: block;
     grid-auto-flow: row dense;
+  }
+  .modalContent {
+    max-width: 75%;
+  }
+  .landing_about {
+    padding-right: 50px;
+    padding-left: 50px;
   }
 }

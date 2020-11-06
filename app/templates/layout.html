@@ -3,6 +3,10 @@
 
     <head>
         {% block head %}
+        <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500&display=swap" rel="stylesheet">
+
+        <!-- <link href="https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap" rel="stylesheet"> -->
+
         <title>Al Miller III</title>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -44,14 +48,13 @@
         <!-- mailgo import -->
         <script src="{{ url_for('static', filename='./js/mailgo.min.js') }}" defer></script>
 
-        <!-- local JS imports for tree and modal -->
-        <script src="{{ url_for('static', filename='./js/main.js') }}"></script>
-
+        
         {% block content %}
         {% endblock %}
         
+        <!-- local JS imports for tree and modal -->
+        <script src="{{ url_for('static', filename='./js/main.js') }}"></script>
         <script src="{{ url_for('static', filename='./js/modal.js') }}"></script>
-        <script src="{{ url_for('static', filename='./js/typeWriter.js') }}"></script>
     </body>
 
 </html>
