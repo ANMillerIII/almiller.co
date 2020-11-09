@@ -36,26 +36,17 @@ function getCookie(cname) {
 	return null;
 }
 
-// If first time, set cookie
-if (getCookie(cname) == null) {
-	setCookie(cname);
-} else {
-	siteVisited = true;
-}
-
-function setCookie() {
-	// Set executed animation cookie after animation
-	window.addEventListener('load', function () {
+// On load, set cookie after 10s delay
+window.addEventListener('load', function () {
+	// If no cookie, set cookie
+	if (getCookie(cname) == null) {
 		setTimeout(function () {
 			document.cookie = "executedAnimation=true";
 			siteVisited = true;
-		}, 10000)
-	});
-};
-
-// If already visited page, show tree instantly and don't fade_in anything
-window.addEventListener('load', function () {
-	if (siteVisited) {
+		}, 15000)
+	} else {
+		// If returned cookie, remove animatino classes and set tree to visited
+		siteVisited = true;
 		var els = document.querySelectorAll(".fade_in_page, .fade_in_page_after");
 		for (let i = 0; i < els.length; i++) {
 			els[i].classList.remove('fade_in_page')
@@ -81,8 +72,7 @@ function windowResized() {
 }
 
 function readInputs() {
-	// Set tree parameters
-	// size = 155;
+	// TODO optimize size so not always getting windowHeight
 	size = windowHeight / 6;
 	maxLevel = 13;
 	rot = PI / 8.5;
@@ -93,23 +83,31 @@ function readInputs() {
 }
 
 function draw() {
+	readInputs();
 	// draw tree
 	stroke(0, 0, 0);
 	background(255, 255, 255);
 	translate(width / 2, height);
 	scale(1, -1);
+	// If vertical phone move tree up
 	if (width < 400) {
 		translate(2, 150);
 		size = windowHeight / 9;
+		// If horizontal phone move tree up
 	} else if (width > 500 && height < 400) {
 		translate(20, 100);
 		size = windowHeight / 11;
-
+		// If desktop screen
 	} else {
-		if (height > 500) {
-			translate(18, 125);
+		// If desktop screen that's big (normal case) and not vertical ipad
+		if (height > 950 && width < 800) {
+			translate(18, 230);
+			// If normal desktop
+		} else if (height > 950 && width > 800) {
+			translate(18, 230);
 		} else {
-			translate(18, 30);
+			// normal ipad
+			translate(18, 125);
 		}
 	}
 	branch(1, randSeed);
@@ -234,7 +232,7 @@ function grow() {
 	var diff = millis() - startTime;
 
 	prog += maxLevel / 8 * Math.max(diff, 20) / 1000;
-	setTimeout(grow, Math.max(1, 20 - diff));
+	// setTimeout(grow, Math.max(1, 20 - diff));
 
 	// site visited? don't grow then.
 	if (siteVisited == true) {

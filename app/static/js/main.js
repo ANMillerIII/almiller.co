@@ -16,54 +16,45 @@ var prog = 1,
 	paramSeed = Math.floor(Math.random() * 1000),
 	randBias = 0;
 
-// var cname = "executedAnimation";
+var cname = "executedAnimation";
 
-// var siteVisited = false;
+var siteVisited = false;
 
-// function getCookie(cname) {
-// 	var name = cname + "=";
-// 	var decodedCookie = decodeURIComponent(document.cookie);
-// 	var ca = decodedCookie.split(';');
-// 	for (var i = 0; i < ca.length; i++) {
-// 		var c = ca[i];
-// 		while (c.charAt(0) == ' ') {
-// 			c = c.substring(1);
-// 		}
-// 		if (c.indexOf(name) == 0) {
-// 			return c.substring(name.length, c.length);
-// 		}
-// 	}
-// 	return null;
-// }
+function getCookie(cname) {
+	var name = cname + "=";
+	var decodedCookie = decodeURIComponent(document.cookie);
+	var ca = decodedCookie.split(';');
+	for (var i = 0; i < ca.length; i++) {
+		var c = ca[i];
+		while (c.charAt(0) == ' ') {
+			c = c.substring(1);
+		}
+		if (c.indexOf(name) == 0) {
+			return c.substring(name.length, c.length);
+		}
+	}
+	return null;
+}
 
-// // If first time, set cookie
-// if (getCookie(cname) == null) {
-// 	setCookie(cname);
-// } else {
-// 	siteVisited = true;
-// }
-
-// function setCookie() {
-// 	// Set executed animation cookie after animation
-// 	window.addEventListener('load', function () {
-// 		setTimeout(function () {
-// 			document.cookie = "executedAnimation=true";
-// 			siteVisited = true;
-// 		}, 10000)
-// 	});
-// };
-
-// If already visited page, show tree instantly and don't fade_in anything
-// window.addEventListener('load', function () {
-// 	if (siteVisited) {
-// 		var els = document.querySelectorAll(".fade_in_page, .fade_in_page_after");
-// 		for (let i = 0; i < els.length; i++) {
-// 			els[i].classList.remove('fade_in_page')
-// 			els[i].classList.remove('fade_in_page_after')
-// 			els[i].classList.add('rapid_fade_in')
-// 		}
-// 	}
-// });
+// On load, set cookie after 10s delay
+window.addEventListener('load', function () {
+	// If no cookie, set cookie
+	if (getCookie(cname) == null) {
+		setTimeout(function () {
+			document.cookie = "executedAnimation=true";
+			siteVisited = true;
+		}, 15000)
+	} else {
+		// If returned cookie, remove animatino classes and set tree to visited
+		siteVisited = true;
+		var els = document.querySelectorAll(".fade_in_page, .fade_in_page_after");
+		for (let i = 0; i < els.length; i++) {
+			els[i].classList.remove('fade_in_page')
+			els[i].classList.remove('fade_in_page_after')
+			els[i].classList.add('rapid_fade_in')
+		}
+	}
+});
 
 setup();
 
@@ -72,7 +63,7 @@ function setup() {
 	createCanvas(window.innerWidth, window.innerHeight);
 	readInputs();
 	startGrow();
-	// noLoop();
+	noLoop();
 }
 
 function windowResized() {
@@ -81,8 +72,7 @@ function windowResized() {
 }
 
 function readInputs() {
-	// Set tree parameters
-	// size = 155;
+	// TODO optimize size so not always getting windowHeight
 	size = windowHeight / 6;
 	maxLevel = 13;
 	rot = PI / 8.5;
@@ -107,8 +97,7 @@ function draw() {
 	} else if (width > 500 && height < 400) {
 		translate(20, 100);
 		size = windowHeight / 11;
-		
-	// If desktop screen
+		// If desktop screen
 	} else {
 		// If desktop screen that's big (normal case) and not vertical ipad
 		if (height > 950 && width < 800) {
@@ -120,8 +109,6 @@ function draw() {
 			// normal ipad
 			translate(18, 125);
 		}
-		// If vertical ipad (desktop screen that has height shrunk under 1050 px)
-		// translate(18, 30);
 	}
 	branch(1, randSeed);
 	noLoop();
@@ -245,15 +232,15 @@ function grow() {
 	var diff = millis() - startTime;
 
 	prog += maxLevel / 8 * Math.max(diff, 20) / 1000;
-	setTimeout(grow, Math.max(1, 20 - diff));
+	// setTimeout(grow, Math.max(1, 20 - diff));
 
 	// site visited? don't grow then.
-	// if (siteVisited == true) {
-	// 	setTimeout(grow, 0);
-	// 	prog = maxLevel
-	// } else {
-	// 	setTimeout(grow, Math.max(1, 20 - diff));
-	// }
+	if (siteVisited == true) {
+		setTimeout(grow, 0);
+		prog = maxLevel
+	} else {
+		setTimeout(grow, Math.max(1, 20 - diff));
+	}
 
 }
 
