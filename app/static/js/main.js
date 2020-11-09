@@ -16,6 +16,10 @@ var prog = 1,
 	paramSeed = Math.floor(Math.random() * 1000),
 	randBias = 0;
 
+var cname = "executedAnimation";
+
+var siteVisited = false;
+
 function getCookie(cname) {
 	var name = cname + "=";
 	var decodedCookie = decodeURIComponent(document.cookie);
@@ -32,10 +36,6 @@ function getCookie(cname) {
 	return null;
 }
 
-var cname = "executedAnimation";
-
-var siteVisited = false;
-
 // If first time, set cookie
 if (getCookie(cname) == null) {
 	setCookie(cname);
@@ -49,21 +49,21 @@ function setCookie() {
 		setTimeout(function () {
 			document.cookie = "executedAnimation=true";
 			siteVisited = true;
-		}, 13000)
+		}, 10000)
 	});
-}
+};
 
 // If already visited page, show tree instantly and don't fade_in anything
-if (siteVisited) {
-	// console.log("asdf")
-	// Don't fade_in
-	var els = document.querySelectorAll(".fade_in_page, .fade_in_page_after");
-	for (let i= 0; i < els.length; i++) {
-		els[i].classList.remove('fade_in_page')
-		els[i].classList.remove('fade_in_page_after')
-		els[i].classList.add('rapid_fade_in')
+window.addEventListener('load', function () {
+	if (siteVisited) {
+		var els = document.querySelectorAll(".fade_in_page, .fade_in_page_after");
+		for (let i = 0; i < els.length; i++) {
+			els[i].classList.remove('fade_in_page')
+			els[i].classList.remove('fade_in_page_after')
+			els[i].classList.add('rapid_fade_in')
+		}
 	}
-} 
+});
 
 setup();
 
@@ -175,7 +175,7 @@ function branch(level, seed) {
 	if ((level >= maxLevel || (!doBranch1 && !doBranch2)) && doLeaves) {
 		draw_leaf(leafPoints);
 	}
-	
+
 	noLoop();
 }
 
@@ -234,7 +234,7 @@ function grow() {
 	var diff = millis() - startTime;
 
 	prog += maxLevel / 8 * Math.max(diff, 20) / 1000;
-		setTimeout(grow, Math.max(1, 20 - diff));
+	setTimeout(grow, Math.max(1, 20 - diff));
 
 	// site visited? don't grow then.
 	if (siteVisited == true) {

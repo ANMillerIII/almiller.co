@@ -16,13 +16,63 @@ var prog = 1,
 	paramSeed = Math.floor(Math.random() * 1000),
 	randBias = 0;
 
+var cname = "executedAnimation";
+
+var siteVisited = false;
+
+function getCookie(cname) {
+	var name = cname + "=";
+	var decodedCookie = decodeURIComponent(document.cookie);
+	var ca = decodedCookie.split(';');
+	for (var i = 0; i < ca.length; i++) {
+		var c = ca[i];
+		while (c.charAt(0) == ' ') {
+			c = c.substring(1);
+		}
+		if (c.indexOf(name) == 0) {
+			return c.substring(name.length, c.length);
+		}
+	}
+	return null;
+}
+
+// If first time, set cookie
+if (getCookie(cname) == null) {
+	setCookie(cname);
+} else {
+	siteVisited = true;
+}
+
+function setCookie() {
+	// Set executed animation cookie after animation
+	window.addEventListener('load', function () {
+		setTimeout(function () {
+			document.cookie = "executedAnimation=true";
+			siteVisited = true;
+		}, 10000)
+	});
+};
+
+// If already visited page, show tree instantly and don't fade_in anything
+window.addEventListener('load', function () {
+	if (siteVisited) {
+		var els = document.querySelectorAll(".fade_in_page, .fade_in_page_after");
+		for (let i = 0; i < els.length; i++) {
+			els[i].classList.remove('fade_in_page')
+			els[i].classList.remove('fade_in_page_after')
+			els[i].classList.add('rapid_fade_in')
+		}
+	}
+});
+
 setup();
 
 function setup() {
 	// Set canvas dimensions based on screen size
 	createCanvas(window.innerWidth, window.innerHeight);
-	readInputs(false);
+	readInputs();
 	startGrow();
+	noLoop();
 }
 
 function windowResized() {
@@ -30,7 +80,7 @@ function windowResized() {
 	resizeCanvas(windowWidth, windowHeight);
 }
 
-function readInputs(updateTree) {
+function readInputs() {
 	// Set tree parameters
 	// size = 155;
 	size = windowHeight / 6;
@@ -56,7 +106,11 @@ function draw() {
 		size = windowHeight / 11;
 
 	} else {
-		translate(18, 120);
+		if (height > 500) {
+			translate(18, 125);
+		} else {
+			translate(18, 30);
+		}
 	}
 	branch(1, randSeed);
 	noLoop();
@@ -121,6 +175,8 @@ function branch(level, seed) {
 	if ((level >= maxLevel || (!doBranch1 && !doBranch2)) && doLeaves) {
 		draw_leaf(leafPoints);
 	}
+
+	noLoop();
 }
 
 function draw_leaf(points) {
@@ -158,7 +214,7 @@ function draw_leaf(points) {
 }
 
 function startGrow() {
-	growing = true;
+	growing = false;
 	prog = 1;
 	grow();
 }
@@ -179,6 +235,15 @@ function grow() {
 
 	prog += maxLevel / 8 * Math.max(diff, 20) / 1000;
 	setTimeout(grow, Math.max(1, 20 - diff));
+
+	// site visited? don't grow then.
+	if (siteVisited == true) {
+		setTimeout(grow, 0);
+		prog = maxLevel
+	} else {
+		setTimeout(grow, Math.max(1, 20 - diff));
+	}
+
 }
 
 // Generate random values used for tree parameters

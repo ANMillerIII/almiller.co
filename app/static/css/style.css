@@ -327,7 +327,7 @@ canvas {
   }
 }
 
-@media screen and (max-width: 350px) {
+@media screen and (max-width: 1000px) {
   .landing_contact_links {
     padding: 5px;
     margin-top: 40%;
