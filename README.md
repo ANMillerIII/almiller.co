@@ -1,67 +1,64 @@
-# almiller.co
+## [almiller.co](https://www.almiller.co)
 
-Portfolio site for Al Miller.
+Al's serverless static portfolio site.
 
-[almiller.co](https://www.almiller.co)
+![Build Status](https://travis-ci.org/almiller/UtilityBehaviors.png)
 
-## Purpose
+## Contact
 
-Minimalistic site to aggregate personal projects and thoughts.
+Please feel free to reach out at [albert.miller@uconn.edu](mailto::albert.miller@uconn.edu).
 
-## Installation
+Al also has a [Linkedin](https://www.linkedin.com/al-miller/).
+
+## Stack
+
+<u>Front-End</u>
+
+- JavaScript
+- p5.js
+
+<u>Back-End</u>
+
+- Flask/Frozen-Flask
+- AWS
+    - S3
+    - CDN
+    - CloudFront
+- Google Analytics
+
+## Develop
 
 Clone repository
 
-```
-git clone https://github.com/ANMillerIII/almiller.co.git
-```
+`git clone https://www.github.com/anmilleriii/almiller.co.git`
 
-Instantiate and activate virtual environment
+Switch to `/almiller.co` and activate Python virtual environment
 
-```
-py -m venv venv
-
-./venv/Scripts/activate.ps1
-
-```
+`./venv/Scripts/activate.ps1`
 
 Install dependencies
 
-```
-py -m pip install -r requirements.txt
-```
+`py -m pip install -r requirements.txt`
 
-Run Flask
+Run local Flask development server
 
-```
-flask run
-```
+`flask run`
 
-## Deployment
+## Deploy
 
-Freeze site (output to 'build' directory)
+Freeze Flask application to static web app using Frozen-Flask
 
-```
-py freeze.py
-```
+`py freeze.py`
 
-Freeze site (output to 'build' directory)
+Upload to AWS S3 using AWS CLI
 
-```
-aws s3 cp ./build s3://name-of-bucket/
-```
+`py -m awscli s3 cp ./app/build s3://albert-miller/ --recursive`
 
-Configure CloudFront deployment from AWS console
+Create AWS CloudFront cache invalidation or use S3 versioning from AWS Console to deploy.
 
-## Built With
+## Citations
 
-* [Flask](https://flask.palletsprojects.com/en/1.1.x/) - Flask framework used.
-* [Frozen-Flask](https://pythonhosted.org/Frozen-Flask/) - Static deployment of Flask apps.
-* [AWS S3, CDN](https://aws.amazon.com/) - Site is deployed from S3 bucket via CloudFront.
-
-## Authors
-
-* **Al Miller** - [ANMillerIII](https://github.com/ANMillerIII)
+Tree animation forked and modified from Chris Harrison's [fractal tree generator](https://github.com/someuser-321/TreeGenerator).
 
 ## License
 

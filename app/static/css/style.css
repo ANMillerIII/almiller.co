@@ -9,6 +9,10 @@
   color: black;
 }
 
+body {
+  min-height: 600px !important;
+}
+
 /* Modal styles */
 
 .modal {
@@ -327,7 +331,7 @@ canvas {
   }
 }
 
-@media screen and (max-width: 1000px) {
+@media screen and (max-width: 350px) {
   .landing_contact_links {
     padding: 5px;
     margin-top: 40%;
@@ -345,3 +349,7 @@ canvas {
     padding-left: 50px;
   }
 }
+/* 
+@media screen and (max-width: 768px) , screen and (max-height: 1024px) {
+  768 1024
+} */

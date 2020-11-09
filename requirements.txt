@@ -1,6 +1,4 @@
 py
 flask
 Frozen-Flask
-email_validator
-babel
 awscli
