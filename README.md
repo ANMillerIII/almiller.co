@@ -1,53 +1,65 @@
-## almiller.co
+## [almiller.co](https://www.almiller.co)
 
-Personal portfolio site for Al Miller.
+Al's serverless static portfolio site.
 
-[almiller.co](https://www.almiller.co)
+![Build Status](https://travis-ci.org/almiller/UtilityBehaviors.png)
 
-## Purpose
+## Contact
 
-Static site to of Al Miller.
+Please feel free to reach out at [albert.miller@uconn.edu](mailto::albert.miller@uconn.edu).
 
-## Core Functionality
-
-Primary requirements:
-
-1. Hosted static site with following pages:
-    - Index
-    - How it works
-    - Testimonials
-    - Get in touch
-
-2. Contact functionality, including:
-    - Take the leap email sign-up form on each page, which triggers AWS Lambda function to add person to subscriber database and sends them an email update, along with a modal
-    - Get in touch form, which does the same as above (though with more info)
-
-3. No maintenance or uptime issues, no upkeep
-    - Don't touch it
+Al also has a [Linkedin](https://www.linkedin.com/al-miller/).
 
 ## Stack
 
-Serverless static site.
+<u>Front-End</u>
 
-Front-End:
+- JavaScript
+- p5.js
 
-- Flask
-- jquery
-- Javascript
+<u>Back-End</u>
 
-Backend:
+- Flask/Frozen-Flask
+- AWS
+    - S3
+    - CDN
+    - CloudFront
+- Google Analytics
 
-- Flask-Frozen to convert flask application to static site
-- S3 Storage for hosting static files
-- Cloud Delivery Network as a CDN (provides HTTPS certificate)
-- Google Analytics for site metrics
+## Develop
 
-## Run
+Clone repository
+
+`git clone https://www.github.com/anmilleriii/almiller.co.git`
+
+Switch to `/almiller.co` and activate Python virtual environment
 
 `./venv/Scripts/activate.ps1`
 
+Install dependencies
+
+`py -m pip install -r requirements.txt`
+
+Run local Flask development server
+
 `flask run`
 
-## Other Aspects
+## Deploy
 
-Al also has a [Linkedin](https://www.linkedin.com/al-miller/).
+Freeze Flask application to static web app using Frozen-Flask
+
+`py freeze.py`
+
+Upload to AWS S3 using AWS CLI
+
+`py -m awscli s3 cp ./app/build s3://albert-miller/ --recursive`
+
+Create AWS CloudFront cache invalidation or use S3 versioning from AWS Console to deploy.
+
+## Citations
+
+Tree animation forked and modified from Chris Harrison's [fractal tree generator](https://github.com/someuser-321/TreeGenerator).
+
+## License
+
+This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details.

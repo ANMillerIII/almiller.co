@@ -1,0 +1,13 @@
+<svg width="32" height="40" xmlns="http://www.w3.org/2000/svg">
+
+ <g>
+  <title>background</title>
+  <rect fill="none" id="canvas_background" height="602" width="802" y="-1" x="-1"/>
+ </g>
+ <g>
+  <title>Layer 1</title>
+  <path fill="#b2403e" id="svg_1" d="m24.485,2c0,8 -18,4 -18,20c0,6 2,8 2,8l2,0c0,0 -3,-2 -3,-8c0,-4 9,-8 9,-8s-7.981,4.328 -7.981,8.436c12.735,1.995 19.784,-12.83 15.981,-20.436z"/>
+  <text id="svg_2" font-family="'Helvetica Neue', Helvetica, Arial-Unicode, Arial, Sans-serif" font-weight="bold" font-size="5px" fill="#000000" y="47">Created by Dmitry Baranovskiy</text>
+  <text id="svg_3" font-family="'Helvetica Neue', Helvetica, Arial-Unicode, Arial, Sans-serif" font-weight="bold" font-size="5px" fill="#000000" y="52">from the Noun Project</text>
+ </g>
+</svg>
