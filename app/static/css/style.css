@@ -286,6 +286,9 @@ canvas {
     margin-left: 3%;
     padding: 5px;
   }
+  /* .icon {
+    margin-left: 100px !important;
+  } */
   .landing_about {
     display: block;
     grid-auto-flow: row dense
