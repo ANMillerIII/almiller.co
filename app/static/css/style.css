@@ -293,12 +293,12 @@ canvas {
 /* Smartphones (landscape) ----------- */
 
 @media only screen and (min-width: 321px) {
-  html, body {
+  /* html, body {
     overflow-x: hidden !important;
   }
   body {
     position: relative !important;
-  }
+  } */
   .landing_heading {
     margin-top: 2vw;
     font-size: 1px;
