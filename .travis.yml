@@ -1,13 +1,17 @@
 matrix:
   include:
+
   - language: node_js
     node_js:
     - stable
     install:
+    - npm install -g travis-ci-cloudfront-invalidation
     - npm install -g uglify-js
+    - npm install
     script:
     - uglifyjs ./app/static/js/working/main.js -o ./app/static/js/main.min.js
     - uglifyjs ./app/static/js/working/modal.js -o ./app/static/js/modal.min.js
+
   - language: python
     python:
     - 3.4
@@ -25,7 +29,16 @@ matrix:
       local_dir: ./app/build
       skip_cleanup: true
       region: us-east-1
+
+    - language: node_js
+    node_js:
+    - stable
+    install:
+    - npm install -g travis-ci-cloudfront-invalidation
+    - npm install
+    after_deploy:
+    - travis-ci-cloudfront-invalidation -a $AWS_KEY_ID -s $SECRET_AWS_KEY_ID -c $DISTRIBUTION_ID -i '/*' -b $TRAVIS_BRANCH -p $TRAVIS_PULL_REQUEST
+
+
 notifications:
   email: false
-env:
-  global:
