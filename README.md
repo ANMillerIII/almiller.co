@@ -2,7 +2,7 @@
 
 Al's serverless static portfolio site.
 
-![Build Status](https://travis-ci.org/almiller/UtilityBehaviors.png)
+![Build Status](https://travis-ci.com/ANMillerIII/almiller.co.svg?branch=master)
 
 ## Contact
 
