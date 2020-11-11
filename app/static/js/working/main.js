@@ -242,7 +242,7 @@ function grow() {
 
 }
 
-// Generate random values used for tree parameters
+// Generate random values used for tree parameters.
 
 function rand() {
 	return random(1000) / 1000;
