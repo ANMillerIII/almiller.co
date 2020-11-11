@@ -48,10 +48,10 @@ window.addEventListener('load', function () {
 		// If returned cookie, remove animatino classes and set tree to visited
 		siteVisited = true;
 		var els = document.querySelectorAll(".fade_in_page, .fade_in_page_after");
-		for (let i = 0; i < els.length; i++) {
-			els[i].classList.remove('fade_in_page')
-			els[i].classList.remove('fade_in_page_after')
-			els[i].classList.add('rapid_fade_in')
+		for (k = 0; k < els.length; k++) {
+			els[k].classList.remove('fade_in_page')
+			els[k].classList.remove('fade_in_page_after')
+			els[k].classList.add('rapid_fade_in')
 		}
 	}
 });
@@ -72,7 +72,6 @@ function windowResized() {
 }
 
 function readInputs() {
-	// TODO optimize size so not always getting windowHeight
 	size = windowHeight / 6;
 	maxLevel = 13;
 	rot = PI / 8.5;
@@ -89,26 +88,18 @@ function draw() {
 	background(255, 255, 255);
 	translate(width / 2, height);
 	scale(1, -1);
-	// If vertical phone move tree up
-	if (width < 400) {
-		translate(2, 150);
-		size = windowHeight / 9;
-		// If horizontal phone move tree up
-	} else if (width > 500 && height < 400) {
-		translate(20, 100);
+
+	console.log(width)
+	if (width < 500) {
+		translate(0, windowHeight / 3.2);
+		size = windowHeight / 8.4;
+	} else if (width > 320 && width < 1200 && height < 600) {
+		translate(20, windowHeight / 3.0);
 		size = windowHeight / 11;
-		// If desktop screen
 	} else {
-		// If desktop screen that's big (normal case) and not vertical ipad
-		if (height > 950 && width < 800) {
-			translate(18, 230);
-			// If normal desktop
-		} else if (height > 950 && width > 800) {
-			translate(18, 230);
-		} else {
-			// normal ipad
-			translate(18, 125);
-		}
+		// screen
+		translate(30, windowHeight / 4.9)
+		size = windowHeight / 6.2;
 	}
 	branch(1, randSeed);
 	noLoop();

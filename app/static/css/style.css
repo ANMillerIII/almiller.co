@@ -170,7 +170,7 @@ canvas {
 .landing_contact_links {
   display: inline-flex;
   align-self: top;
-  margin-top: 170px;
+  margin-top: 18vh !important;
   justify-self: center;
   grid-column: 2;
   grid-row: 3;
@@ -178,7 +178,7 @@ canvas {
 
 .landing_contact_links a {
   justify-items: center;
-  margin-left: 20px;
+  margin-left: 10px;
 }
 
 /* Landing about modal */
@@ -278,17 +278,13 @@ canvas {
   padding-bottom: 7vh;
 }
 
-/* Horizontal phone */
+/* Smartphones (landscape) ----------- */
 
-@media screen and (max-height: 340px) {
+@media only screen and (min-width: 321px) {
   .landing_contact_links {
-    margin-top: 10%;
-    margin-left: 3%;
-    padding: 5px;
+    margin-top: 18vh !important;
+    margin-left: 5vw;
   }
-  /* .icon {
-    margin-left: 100px !important;
-  } */
   .landing_about {
     display: block;
     grid-auto-flow: row dense
@@ -299,13 +295,16 @@ canvas {
   }
 }
 
-/* Vertical phone */
+/* Smartphones (portrait) ----------- */
 
-@media screen and (max-width: 350px) {
+@media only screen and (max-width: 420px) {
   .landing_contact_links {
     padding: 5px;
-    margin-top: 40%;
-    margin-left: -8%;
+    margin-top: 15vh !important;
+    margin-left: -10vw !important;
+  }
+  .contact_link {
+    margin-left: 9px;
   }
   .landing_about {
     display: block;
@@ -314,5 +313,20 @@ canvas {
   .modalContent {
     max-width: 85%;
     margin-bottom: 10vw;
+  }
+}
+
+/* Desktop ----------- */
+
+@media only screen and (min-width: 600px) {
+  .landing_contact_links {
+    margin-left: 2.16vw !important;
+  }
+  .landing_about_heading, .landing_about_item {
+    padding-right: 3vw;
+    padding-left: 3vw;
+  }
+  .modalContent {
+    max-width: 65%;
   }
 }

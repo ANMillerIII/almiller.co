@@ -46,6 +46,11 @@ Run local Flask development server
 
 ## Deploy
 
+Uglify JS
+
+`uglifyjs ./app/static/js/working/main.js -o ./app/static/js/main.min.js`
+`uglifyjs ./app/static/js/working/modal.js -o ./app/static/js/modal.min.js`
+
 Freeze Flask application to static web app using Frozen-Flask
 
 `py freeze.py`
