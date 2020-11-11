@@ -90,13 +90,20 @@ function draw() {
 	scale(1, -1);
 
 	console.log(width)
+	console.log(height)
 	if (width < 500) {
+		console.log("abc500")
+		// portrait
 		translate(0, windowHeight / 3.2);
 		size = windowHeight / 8.4;
-	} else if (width > 320 && width < 1200 && height < 600) {
-		translate(20, windowHeight / 3.0);
-		size = windowHeight / 11;
+	} else if (width > 500 && height < 500) {
+		console.log("nah")
+		// landscape
+		// translate(20, windowHeight / 55);
+		translate(20, windowHeight / 3);
+		size = windowHeight / 13;
 	} else {
+		console.log("aaanah")
 		// screen
 		translate(30, windowHeight / 4.9)
 		size = windowHeight / 6.2;
