@@ -23,8 +23,6 @@ html::-webkit-scrollbar, body::-webkit-scrollbar, .content::-webkit-scrollbar {
 canvas {
   width: 80%;
   height: 80%;
-  overflow: auto;
-  -webkit-overflow-scrolling: touch;
 }
 
 /* Modal */
