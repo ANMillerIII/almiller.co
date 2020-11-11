@@ -4,6 +4,13 @@
   color: black;
 }
 
+html, body {
+  overflow-x: hidden;
+}
+body {
+  position: relative;
+}
+
 /* Hide scrollbar */
 
 html::-webkit-scrollbar, body::-webkit-scrollbar, .content::-webkit-scrollbar {
@@ -159,6 +166,8 @@ canvas {
 }
 
 .landing_heading {
+  margin-top: -1.5vh !important;
+  margin-left: 2vw !important;
   font-size: calc(6px + 0.8vw);
   justify-self: center;
   align-self: top;
@@ -281,9 +290,13 @@ canvas {
 /* Smartphones (landscape) ----------- */
 
 @media only screen and (min-width: 321px) {
+  .landing_heading {
+    margin-top: 2vw;
+    font-size: 1px;
+  }
   .landing_contact_links {
-    margin-top: 18vh !important;
-    margin-left: 5vw;
+    margin-top: 16vh !important;
+    margin-left: 1vw;
   }
   .landing_about {
     display: block;
@@ -298,20 +311,21 @@ canvas {
 /* Smartphones (portrait) ----------- */
 
 @media only screen and (max-width: 420px) {
-  .landing_contact_links {
-    padding: 5px;
-    margin-top: 15vh !important;
-    margin-left: -10vw !important;
-  }
   .contact_link {
-    margin-left: 9px;
+    margin-left: 17px;
+  }
+  
+  .landing_contact_links {
+    padding: 1px;
+    margin-top: 13vh !important;
+    margin-left: -12vw !important;
   }
   .landing_about {
     display: block;
     grid-auto-flow: row dense;
   }
   .modalContent {
-    max-width: 85%;
+    max-width: 85% !important;
     margin-bottom: 10vw;
   }
 }
