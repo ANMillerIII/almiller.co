@@ -1,8 +1,8 @@
 ## [almiller.co](https://www.almiller.co)
 
-Al's serverless static portfolio site.
+Al's serverless portfolio site.
 
-![Build Status](https://travis-ci.org/almiller/UtilityBehaviors.png)
+![Build Status](https://travis-ci.com/ANMillerIII/almiller.co.svg?branch=master)
 
 ## Contact
 
@@ -24,6 +24,7 @@ Al also has a [Linkedin](https://www.linkedin.com/al-miller/).
     - S3
     - CDN
     - CloudFront
+- Travis CI
 - Google Analytics
 
 ## Develop
@@ -45,6 +46,16 @@ Run local Flask development server
 `flask run`
 
 ## Deploy
+
+#### Travis CI automatically performs the following on every `git push` to `master`.
+
+1. Uglify JS (for JS performance)
+2. Freeze Flask application (static/serverless on S3)
+3. Upload to S3 and invalidate CloudFront distribution.
+
+i.e., instantly deploy to https://almiller.co on every pull request to `master`.
+
+#### Manually from the bash terminal this is:
 
 Uglify JS
 
