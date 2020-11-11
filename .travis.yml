@@ -11,7 +11,7 @@ matrix:
     
     - language: python
       python: 
-        - "stable"
+        - 3.4
       # before_install:
       #   - ./venv/Scripts/activate
       install: 
