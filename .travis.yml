@@ -19,8 +19,8 @@ matrix:
     - python freeze.py
     deploy:
       provider: s3
-      access_key_id: $secure1
-      secret_access_key: $secure2
+      access_key_id: $AWS_KEY_ID
+      secret_access_key: $SECRET_AWS_KEY_ID
       bucket: almiller.co
       local_dir: ./app/build
       skip_cleanup: true
@@ -29,5 +29,3 @@ notifications:
   email: false
 env:
   global:
-    secure1: X4Sh0gJ1BrkGW2emyevMbwDt4rbrXrjjPMgxaE0wb5tqPb/6h4xIMHT25sqcrmXa2sUbSdiTgab5eQxZNYFUbUWO10bb6KWS6/9Kb5QWMEF4W3pI6KcF/dW9nSI+54f0em3Br8yzjm9aVN9Ecs1FRUe5Y32ZlaiP9MEBWhpyexkMKhdni2fKntQC4nzy7W5fQPbOo2Va5V9MA/6fs7BeI+ixeX7LDk+Qrt9A6Cs8AlSG3xRibPVlUKsonmjM/b+lY3rIVqW2dUHGCidv72M8+EGR+RYaCCJkPQlwR5Ga1XFt9a0Zs3FnELKr7O+bSAQg+/yXsJK12MgArkj51j6rTPG6xBrKuVXjQCK8Q1uIYt3A/9dRvciJ+em38Be5FH0IAN882LypNcH8J2C7ylJlI9Fb9hHtElEugYn2010A1Shkhi3gyutsdGXhSqnKtFixN+3TEKzjknQAQYqBQYb9F4+bomrrcT6byDQwxLhPWkwlD3JwPr48naYawntIYVef1fpLGnyhXe4S8+ccbjrOOLTopFaS1LsF/9n0xDrAcCXC7491GUksCHBnRhzQpj8g271FMiliTnyKkYyO5lOjjL2bOqd9+3iYwyjO3iutaXtBmt+y2H3iqTltVpP1Gmk+Y1HBcsWlvpfp7t49nWvXqUtyiJ8jL0jtIY8T77j7gM4=
-    secure2: PRV3WP2r3lLZHrJI8JT+7i/l6IK1fysKxImSZ2GZy3XpAL3Sxfv4O0cYKyKFuTtrXMwmWabA+7ADW/s/X1bIAys9nIwBMwpC7YfAQXjJ4R5XuU0UY5v0FC5HuxF6Y7uRk6i7Mddrs/+HbbJu2szEz1ccD1XkfdQU1Ei0BTbrBPpOwzHd2P/NP9X+Xok7TTJaN+ES19O0Q+4ViRjwvq2vhZuZvzT7pjVBiO6/VzHtnGD6ByuylADxAVmHEZ1kzC32RpXaiCog8jA2SYLgLcfBzTV5+92TbnbfH9aDrxxkHGjMtE6yfE/s1esD5VDgCNrTsB3kw66/zKEIMsjPY0o5cH1bRUjaD4TMBlxDQ6LmkhDnqOb9kRIsmVzeVB5GoIn6znKCROfk32pz+496vv0nj20jMEbb0Mdd/jQUZvNPirBCgJLH5NhfHoNDr86sWc40ENYUghVnD+X7PoWfV6lJZUUeUifcOuk95SYAeROZhlxTVRqa33jy2RCZn667mnQ5F+dCV+8V8ncmvOYaPGyL+Z3tDbnPEzSGjuJ5UChgINJPDP6BBDtHDiasdvGM/LxjM0lbzX5JuNKRCUtxp8tuGSvSOqkWLGv/+BUrL8lPDTJqevGbnkrNGuddPxC9jAzy4KLXZINfV9PTA4Tjha4EvYhgmfw6Ebpck8c1WcMUYT4=
