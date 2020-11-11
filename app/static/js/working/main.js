@@ -16,6 +16,22 @@ var prog = 1,
 	paramSeed = Math.floor(Math.random() * 1000),
 	randBias = 0;
 
+// Detect mobile
+document.addEventListener("mousewheel", this.mousewheel.bind(this), { passive: false });
+function isMobile() { return ('ontouchstart' in document.documentElement); }
+
+if (isMobile()) {
+	// Disable scrolling.
+	document.ontouchmove = function (e) {
+		e.preventDefault();
+	}
+} else {
+	// Enable scrolling.
+	document.ontouchmove = function (e) {
+		return true;
+	}
+}
+
 var cname = "executedAnimation";
 
 var siteVisited = false;
@@ -43,7 +59,7 @@ window.addEventListener('load', function () {
 		setTimeout(function () {
 			document.cookie = "executedAnimation=true";
 			siteVisited = true;
-		}, 15000)
+		}, 13000)
 	} else {
 		// If returned cookie, remove animatino classes and set tree to visited
 		siteVisited = true;
@@ -89,23 +105,18 @@ function draw() {
 	translate(width / 2, height);
 	scale(1, -1);
 
-	console.log(width)
-	console.log(height)
 	if (width < 500) {
-		console.log("abc500")
 		// portrait
 		translate(0, windowHeight / 3.2);
 		size = windowHeight / 8.4;
 	} else if (width > 500 && height < 500) {
-		console.log("nah")
 		// landscape
 		// translate(20, windowHeight / 55);
 		translate(20, windowHeight / 3);
 		size = windowHeight / 13;
 	} else {
-		console.log("aaanah")
 		// screen
-		translate(30, windowHeight / 4.9)
+		translate(15, windowHeight / 4.9)
 		size = windowHeight / 6.2;
 	}
 	branch(1, randSeed);

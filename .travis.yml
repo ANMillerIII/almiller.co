@@ -11,8 +11,6 @@ matrix:
     script:
     - uglifyjs ./app/static/js/working/main.js -o ./app/static/js/main.min.js
     - uglifyjs ./app/static/js/working/modal.js -o ./app/static/js/modal.min.js
-    after_deploy:
-    - travis-ci-cloudfront-invalidation -a $AWS_KEY_ID -s $SECRET_AWS_KEY_ID -c $DISTRIBUTION_ID -i '/*' -b $TRAVIS_BRANCH -p $TRAVIS_PULL_REQUEST
 
   - language: python
     python:
@@ -31,6 +29,8 @@ matrix:
       local_dir: ./app/build
       skip_cleanup: true
       region: us-east-1
+    after_deploy:
+    - awscli cloudfront create-invalidation --distribution-id $DISTRIBUTION_ID --paths "/*
       
 notifications:
   email: false
