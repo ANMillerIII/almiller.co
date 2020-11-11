@@ -12,13 +12,14 @@ matrix:
     - language: python
       python: 
         - 3.4
-      # before_install:
+      before_install:
+        - "export PYTHONPATH=$PYTHONPATH:$(pwd)"
       #   - ./venv/Scripts/activate
       install: 
         - pip install -r requirements.txt
       script:
-        - py freeze.py
-        - py -m awscli s3 cp ./app/build s3://albert-miller/ --recursive
+        - python freeze.py
+        - python -m awscli s3 cp ./app/build s3://albert-miller/ --recursive
 
 notifications:
   email: false
