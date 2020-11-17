@@ -17,7 +17,7 @@ var prog = 1,
 	randBias = 0;
 
 // Detect mobile
-document.addEventListener("mousewheel", this.mousewheel.bind(this), { passive: false });
+// document.addEventListener("mousewheel", this.mousewheel.bind(this), { passive: false });
 function isMobile() { return ('ontouchstart' in document.documentElement); }
 
 if (isMobile()) {
@@ -59,7 +59,7 @@ window.addEventListener('load', function () {
 		setTimeout(function () {
 			document.cookie = "executedAnimation=true";
 			siteVisited = true;
-		}, 13000)
+		}, 1000)
 	} else {
 		// If returned cookie, remove animatino classes and set tree to visited
 		siteVisited = true;
@@ -76,7 +76,8 @@ setup();
 
 function setup() {
 	// Set canvas dimensions based on screen size
-	createCanvas(window.innerWidth, window.innerHeight);
+	var canvas = createCanvas(window.innerWidth, window.innerHeight);
+	// canvas.parent('sketch-div');
 	readInputs();
 	startGrow();
 	noLoop();

@@ -55,7 +55,65 @@ Run local Flask development server
 
 i.e., instantly deploy to https://almiller.co on every pull request to `master`.
 
-#### Manually from the bash terminal this is:
+#### HTTP/HTTPS and www to Non-www Routing Challenges
+
+Goal: route all HTTP or HTTPS requests to www.almiller.co to naked domain, almiller.co
+
+Since static site from AWS S3 cannot provide SSL certificate, CDN CloudFront is used to serve HTTPS.
+
+CloudFront routing is done as follows:
+
+1. List both the apex and naked domains as CNAMES for CDN distribution
+2. Enable new behavior as Lambda@Edge, "Viewer Request", with the below Lambda function ARN referenced:
+
+    'use strict';
+
+    exports.handler = (event, context, callback) => {
+        var rawJson = JSON.stringify(event);
+        var searchMask = '"host"';
+        var regEx = new RegExp(searchMask, "ig");  
+        var replaceMask = '"Host"';
+
+        rawJson = rawJson.replace(regEx, replaceMask);
+        event = JSON.parse(rawJson);
+
+        const request = event.Records[0].cf.request;
+        var str = request.headers.Host[0].value;
+
+        if (str.startsWith("www.") && !str.endsWith('.cloudfront.net')) {
+            var updatedHost = str.replace("www.","");
+
+            var location = "https://" + updatedHost + request.uri;
+
+            const response = {
+                status: '302',
+                statusDescription: '302 Found',
+                headers: {
+                    location: [{
+                        key: 'Location',
+                        value: location,
+                    }],
+                }
+        };
+
+        console.log(JSON.stringify(response));
+        callback(null, response);
+        return;
+        }
+
+        callback(null, request);
+    };
+
+3. Set Namecheap (DNS) records to the following:
+
+Record | Host | Target
+-------|------|-------
+CNAME  | xyz  | ssl verification
+CNAME  | xyz  | ssl verification
+CNAME  | www  | d1tr5ad4bw850h.cloudfront.net.
+ALIAS  | @    | d1tr5ad4bw850h.cloudfront.net.
+
+#### Manually from bash terminal this is:
 
 Uglify JS
 
