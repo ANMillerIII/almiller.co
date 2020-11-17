@@ -1,7 +1,5 @@
-from flask import Flask, render_template, redirect, url_for, request, make_response, after_this_request
+from flask import Flask, render_template, url_for, make_response
 from app import app
-import os
-
 
 @app.route("/")
 def index():

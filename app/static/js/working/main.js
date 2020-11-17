@@ -59,7 +59,7 @@ window.addEventListener('load', function () {
 		setTimeout(function () {
 			document.cookie = "executedAnimation=true";
 			siteVisited = true;
-		}, 1000)
+		}, 10000)
 	} else {
 		// If returned cookie, remove animatino classes and set tree to visited
 		siteVisited = true;
@@ -113,7 +113,7 @@ function draw() {
 	} else if (width > 500 && height < 500) {
 		// landscape
 		// translate(20, windowHeight / 55);
-		translate(20, windowHeight / 3);
+		translate(20, windowHeight / 5);
 		size = windowHeight / 13;
 	} else {
 		// screen
@@ -244,7 +244,7 @@ function grow() {
 	prog += maxLevel / 8 * Math.max(diff, 20) / 1000;
 	// setTimeout(grow, Math.max(1, 20 - diff));
 
-	// site visited? don't grow then.
+	// site visited? grow rapidly then.
 	if (siteVisited == true) {
 		setTimeout(grow, 0);
 		prog = maxLevel
