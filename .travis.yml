@@ -6,18 +6,15 @@ matrix:
     - stable
     install:
     - npm install -g travis-ci-cloudfront-invalidation
-    - npm install -g uglify-js
     - npm install
-    script:
-    - uglifyjs ./app/static/js/main.js -o ./app/static/js/main.min.js
-
   - language: python
     python:
     - 3.4
     before_install:
     - export PYTHONPATH=$PYTHONPATH:$(pwd)
     install:
-    - pip install -r requirements.txt
+    - pip install py
+    - pip install awscli
     script:
     deploy:
       provider: s3

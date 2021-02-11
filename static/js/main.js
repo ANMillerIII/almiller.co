@@ -55,13 +55,17 @@ window.addEventListener('load', function () {
 		}
 	}
 });
+sketchWidth = document.getElementById("sketch-container").offsetWidth
+sketchHeight = document.getElementById("sketch-container").offsetHeight
 
 setup();
 
 function setup() {
+	console.log(sketchHeight, sketchWidth)
 	// Set canvas dimensions based on screen size
 	// var canvas = createCanvas(window.innerWidth, window.innerHeight);
-	var canvas = createCanvas();
+
+	var canvas = createCanvas(sketchWidth, 200);
 	// var ca = createCanvas(sktech)
 
   	// Move the canvas so it’s inside our <div id="sketch-holder">.
@@ -74,7 +78,7 @@ function setup() {
 
 function windowResized() {
 	// p5.js event listener for window resizing, adjust canvas
-	resizeCanvas(windowWidth, windowHeight);
+	resizeCanvas(sketchWidth, 200);
 }
 
 function readInputs() {
@@ -92,8 +96,8 @@ function draw() {
 	// draw tree
 	stroke(0, 0, 0);
 	background(255, 255, 255);
-	translate(width / 4, height/2);
-	scale(1, -1);
+	translate(width / 2, height);
+	scale(0.65, -0.65);
 	branch(1, randSeed);
 	noLoop();
 }
