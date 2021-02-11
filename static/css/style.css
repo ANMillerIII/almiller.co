@@ -1,10 +1,13 @@
+/* Global */
+
 * {
   font-family: 'Rubik';
   overflow-x: hidden;
-  color: black;
+  color: rgb(34, 34, 34);
 }
 
 /* Hide scrollbar */
+
 html::-webkit-scrollbar, body::-webkit-scrollbar, .content::-webkit-scrollbar {
   display: none;
 }
@@ -17,43 +20,37 @@ body {
   justify-items: center;
 }
 
+.fade_out {
+  position: absolute !important;
+}
+
+/* Grid */
+
 .grid_container {
   display: grid;
-  /* margin-top: 10vh; */
+  top: 0 !important;
+  margin-top: 8vh;
   grid-template-columns: 2;
   grid-template-rows: auto;
 }
-
 .grid_item {
-  /* min-height: 100px; */
+  justify-self: center;
 }
 
-#contact_links {
-  display: inline-flex;
-  flex-direction: row-reverse;
-  /* align-self: right !important; */
-  gap: 3vw;
-  width: 50%;
-  margin: auto;
-  /* text-align: right; */
-}
-
-#contact_links a {
-  background-color: white !important;
-}
 
 h1 {
-  font-size: 2.2em;
+  font-size: 2.5em;
   font-weight: 400;
   margin-bottom: 0;
-  /* margin-top: 5%; */
+  overflow-y: hidden;
 }
 
 h6 {
-  font-weight: 300;
-  font-size: 1.9em;
-  margin-top: 5%;
-  margin-bottom: 5%;
+  font-weight: 400;
+  font-size: 1.6em;
+  margin-top: 3vh;
+  margin-bottom: 3vh;
+  overflow-y: hidden;
 }
 
 p {
@@ -62,6 +59,8 @@ p {
   line-height: 1.4;
   max-width: 28em;
 }
+
+/* Links */
 
 a {
   text-decoration: none;
@@ -77,7 +76,6 @@ a:after {
   right: -0.1em;
   bottom: 0;
   transition: top 200ms cubic-bezier(0, 0.8, 0.13, 1);
-  /* background-color: rgba(85, 160, 80, 0.5); */
   background-color: rgba(48, 82, 47, 0.356);
 }
 
@@ -85,14 +83,28 @@ a:hover:after {
   top: 0%;
 }
 
-/* Contact icon links */
+/* Contact links */
+
+#contact_links {
+  display: inline-flex;
+  flex-direction: row-reverse;
+  gap: 30px;
+  margin-right: 8vw;
+  margin-top: 1vh;
+  margin-bottom: 3vh;
+}
+#contact_links {
+  justify-self: right !important;
+}
+#contact_links a {
+  background-color: white !important;
+}
 
 .icon {
   font-size: calc(13px + 0.6vw);
   transition: color 0.4s;
   cursor: pointer;
   padding: 0;
-  /* margin-left: 80px; */
 }
 
 .material-icons {
@@ -126,18 +138,133 @@ a:hover:after {
   transition: color 0.4s;
 }
 
+/* Fade transitions */
 
-/* h3 {
-  font-size: 50px;
+/* Fade out p5.js */
+
+.fade_out {
+  opacity: 1;
+  animation: fadeOut ease 3s forwards;
+  -webkit-animation: fadeOut ease 3s forwards;
+  -moz-animation: fadeOut ease 3s forwards;
+  -o-animation: fadeOut ease 3s forwards;
+  -ms-animation: fadeOut ease 3s forwards;
+  animation-delay: 10.0s;
 }
-h1 {
-  font-size: 2.5em;
-  font-weight: 300;
-  margin-bottom: 0;
+
+/* Fade in text */
+
+.fade_in_page {
+  opacity: 0;
+  animation: fadeIn ease 4s forwards;
+  -webkit-animation: fadeIn ease 4s forwards;
+  -moz-animation: fadeIn ease 4s forwards;
+  -o-animation: fadeIn ease 4s forwards;
+  -ms-animation: fadeIn ease 4s forwards;
+  animation-delay: 13.0s;
 }
-h6 {
-  font-weight: 300;
-  font-size: 2.2em;
-  margin-top: 5%;
-  margin-bottom: 5%;
-} */
+
+/* Rapid fade in text if previously visited site */
+
+.rapid_fade_in {
+  opacity: 0;
+  animation: fadeIn ease 2.2s forwards;
+  -webkit-animation: fadeIn ease 2.2s forwards;
+  -moz-animation: fadeIn ease 2.2s forwards;
+  -o-animation: fadeIn ease 2.2s forwards;
+  -ms-animation: fadeIn ease 2.2s forwards;
+}
+
+/* Fade in */
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@-moz-keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@-webkit-keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@-o-keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@-ms-keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+/* Fade out */
+
+@keyframes fadeOut {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+@-moz-keyframes fadeOut {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+@-webkit-keyframes fadeOut {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+@-o-keyframes fadeOut {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+@-ms-keyframes fadeOut {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}

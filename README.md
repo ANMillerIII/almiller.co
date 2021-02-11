@@ -1,9 +1,3 @@
-change font to rubik
-change to be in canvas element so no resizing mokey business
-addd articles??
-change mail to me font css
-update resume
-fix tree fast animation
 
 
 
