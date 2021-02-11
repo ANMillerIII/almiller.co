@@ -1,4 +1,2 @@
 py
-flask
-Frozen-Flask
 awscli

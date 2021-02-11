@@ -16,8 +16,8 @@ var prog = 1,
 	paramSeed = Math.floor(Math.random() * 1000),
 	randBias = 0;
 
+//	Define cookie for already visited site
 var cname = "executedAnimation";
-
 var siteVisited = false;
 
 function getCookie(cname) {
@@ -43,7 +43,7 @@ window.addEventListener('load', function () {
 		setTimeout(function () {
 			document.cookie = "executedAnimation=true";
 			siteVisited = true;
-		}, 15000)
+		}, 10000)
 	} else {
 		// If returned cookie, remove animatino classes and set tree to visited
 		siteVisited = true;
@@ -60,7 +60,13 @@ setup();
 
 function setup() {
 	// Set canvas dimensions based on screen size
-	createCanvas(window.innerWidth, window.innerHeight);
+	// var canvas = createCanvas(window.innerWidth, window.innerHeight);
+	var canvas = createCanvas();
+	// var ca = createCanvas(sktech)
+
+  	// Move the canvas so it’s inside our <div id="sketch-holder">.
+  	canvas.parent('sketch-container');
+	// canvas.parent('sketch-div');
 	readInputs();
 	startGrow();
 	noLoop();
@@ -72,7 +78,7 @@ function windowResized() {
 }
 
 function readInputs() {
-	size = windowHeight / 6;
+	size = windowHeight / 10;
 	maxLevel = 13;
 	rot = PI / 8.5;
 	lenRand = 1;
@@ -86,28 +92,8 @@ function draw() {
 	// draw tree
 	stroke(0, 0, 0);
 	background(255, 255, 255);
-	translate(width / 2, height);
+	translate(width / 4, height/2);
 	scale(1, -1);
-
-	console.log(width)
-	console.log(height)
-	if (width < 500) {
-		console.log("abc500")
-		// portrait
-		translate(0, windowHeight / 3.2);
-		size = windowHeight / 8.4;
-	} else if (width > 500 && height < 500) {
-		console.log("nah")
-		// landscape
-		// translate(20, windowHeight / 55);
-		translate(20, windowHeight / 3);
-		size = windowHeight / 13;
-	} else {
-		console.log("aaanah")
-		// screen
-		translate(30, windowHeight / 4.9)
-		size = windowHeight / 6.2;
-	}
 	branch(1, randSeed);
 	noLoop();
 }
@@ -181,7 +167,9 @@ function draw_leaf(points) {
 
 	// Set leaf color
 	// fill(128 + 45 * rand2(), 0 + 45 * rand2(), 15 + 45 * rand2());
-	fill(128 + 45 * rand2(), 20 + 45 * rand2(), 15 + 45 * rand2());
+	// green 127, 191, 117
+	fill(85 + 25 * rand2(), 140 + 15 * rand2(), 80 + 15 * rand2());
+	// red fill(128 + 45 * rand2(), 20 + 45 * rand2(), 15 + 45 * rand2());
 
 	let p1 = p5.Vector.lerp(points[1], points[2], 0.5);
 	let p1_reverse = p5.Vector.lerp(points[3], points[2], 0.5);
@@ -232,7 +220,7 @@ function grow() {
 	prog += maxLevel / 8 * Math.max(diff, 20) / 1000;
 	// setTimeout(grow, Math.max(1, 20 - diff));
 
-	// site visited? don't grow then.
+	// site visited? grow rapidly then.
 	if (siteVisited == true) {
 		setTimeout(grow, 0);
 		prog = maxLevel
@@ -242,7 +230,7 @@ function grow() {
 
 }
 
-// Generate random values used for tree parameters
+// Generate random values used for tree parameters.
 
 function rand() {
 	return random(1000) / 1000;
