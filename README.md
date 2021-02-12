@@ -3,17 +3,17 @@
 
 ## [almiller.co](https://www.almiller.co)
 
-Personal site in Flask with an interesting p5.js tree fractal animation.
+Simple personal site with an interesting p5.js tree fractal animation.
 
 ![Build Status](https://travis-ci.com/ANMillerIII/almiller.co.svg?branch=master)
 
 ## Stack
 
-| Front End          | Back End                |
-| ------------------ | ----------------------- |
-| Flask/Frozen-Flask | AWS S3, CDN, CloudFront |
-| Javascript         | Github                  |
-| HTML/CSS           | Travis CI               |
+| Front End  | Back End                |
+| ---------- | ----------------------- |
+| JavaScript | AWS S3, CloudFront |
+| p5.js      | Github                  |
+| HTML/CSS   | Travis CI (automate CloudFront invalidation)|
 
 ## Develop
 
@@ -21,45 +21,13 @@ Clone repository
 
 `git clone https://www.github.com/anmilleriii/almiller.co.git`
 
-Create a Python virtual environment
-
-`python3 -m venv venv`
-
-Activate it
-
-`./venv/bin/activate.ps1` (Windows)
-`. venv/bin/activate` (MacOS)
-
-Install dependencies
-
-`python3 -m pip install -r requirements.txt`
-
-Run local Flask development server
-
-`flask run`
+This is just vanilla JS; simply open  `index.html` in Chrome.
 
 ## Deploy
 
 Travis CI automatically performs the following on every to pull request to `master`.
 
-1. Uglify JS (for JS performance),
-2. Freeze Flask application (static/serverless on S3), and
-3. Uploads to S3 and invalidate CloudFront distribution (i.e., deploys to https://almiller.co).
-
-Manually this is analagous to:
-
-Uglify JS
-
-`uglifyjs ./app/static/js/working/main.js -o ./app/static/js/main.min.js`
-`uglifyjs ./app/static/js/working/modal.js -o ./app/static/js/modal.min.js`
-
-Freeze Flask application to static web app using Frozen-Flask
-
-`py freeze.py`
-
-Upload to AWS S3 using AWS CLI
-
-`py -m awscli s3 cp ./app/build s3://albert-miller/ --recursive`
+Uploads to S3 and invalidate CloudFront distribution (i.e., deploys to https://almiller.co).
 
 Create AWS CloudFront cache invalidation or use S3 versioning from AWS Console to deploy.
 
