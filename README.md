@@ -27,9 +27,8 @@ This is just vanilla JS; simply open  `index.html` in Chrome.
 
 Travis CI automatically performs the following on every to pull request to `master`.
 
-Uploads to S3 and invalidate CloudFront distribution (i.e., deploys to https://almiller.co).
-
-Create AWS CloudFront cache invalidation or use S3 versioning from AWS Console to deploy.
+1. Uploads to S3 and invalidate CloudFront distribution (i.e., deploys to https://almiller.co).
+2. Create AWS CloudFront cache invalidation or use S3 versioning from AWS Console to deploy.
 
 ##  Notes on Routing
 
