@@ -1,7 +1,0 @@
-# Ignore virtual environemnt
-/venv
-
-# Ignore python caches
-/__pycache__
-/app/__pycache__
-

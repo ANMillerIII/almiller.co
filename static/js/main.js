@@ -1,4 +1,10 @@
-// Forked and modified by Al Miller from Chris Harrison's https://crh.dev/TreeGenerator/
+//	main.js
+//
+//	Updated 2/11/2021.
+//
+//	Abstract: p5.js tree animation.
+//
+// 	Credit: Forked and modified by Al Miller from Chris Harrison's https://crh.dev/TreeGenerator/
 
 var input_seed,
 	size,
@@ -16,63 +22,45 @@ var prog = 1,
 	paramSeed = Math.floor(Math.random() * 1000),
 	randBias = 0;
 
-var cname = "executedAnimation";
-
-var siteVisited = false;
-
-function getCookie(cname) {
-	var name = cname + "=";
-	var decodedCookie = decodeURIComponent(document.cookie);
-	var ca = decodedCookie.split(';');
-	for (var i = 0; i < ca.length; i++) {
-		var c = ca[i];
-		while (c.charAt(0) == ' ') {
-			c = c.substring(1);
-		}
-		if (c.indexOf(name) == 0) {
-			return c.substring(name.length, c.length);
-		}
-	}
-	return null;
-}
+// Remove tree animation div after timeout
+window.addEventListener('load', function () {
+	setTimeout(function () {
+		document.getElementById('sketch-container').remove();
+	}, 13500)
+})
 
 // On load, set cookie after 10s delay
 window.addEventListener('load', function () {
-	// If no cookie, set cookie
-	if (getCookie(cname) == null) {
+	if (window.localStorage.getItem('executedAnimation') == null) {
 		setTimeout(function () {
-			document.cookie = "executedAnimation=true";
-			siteVisited = true;
-		}, 15000)
+			window.localStorage.setItem('executedAnimation', true);
+		}, 10000)
 	} else {
-		// If returned cookie, remove animatino classes and set tree to visited
-		siteVisited = true;
-		var els = document.querySelectorAll(".fade_in_page, .fade_in_page_after");
-		for (k = 0; k < els.length; k++) {
-			els[k].classList.remove('fade_in_page')
-			els[k].classList.remove('fade_in_page_after')
-			els[k].classList.add('rapid_fade_in')
-		}
+		document.getElementById('sketch-container').remove();
+		var grid = document.getElementById('grid_container')
+		grid.classList.remove('fade_in_page');
+		grid.classList.add('rapid_fade_in');
 	}
 });
 
 setup();
 
+// Set canvas dimensions based on screen size
 function setup() {
-	// Set canvas dimensions based on screen size
-	createCanvas(window.innerWidth, window.innerHeight);
+	var canvas = createCanvas(window.innerWidth, window.innerHeight);
+	canvas.parent('sketch-container');
 	readInputs();
 	startGrow();
 	noLoop();
 }
 
+// p5.js event listener for window resizing, adjust canvas
 function windowResized() {
-	// p5.js event listener for window resizing, adjust canvas
-	resizeCanvas(windowWidth, windowHeight);
+	resizeCanvas(window.innerWidth, window.innerHeight);
 }
 
 function readInputs() {
-	size = windowHeight / 6;
+	size = (windowHeight / 11 + windowWidth / 11) / 2;
 	maxLevel = 13;
 	rot = PI / 8.5;
 	lenRand = 1;
@@ -81,66 +69,41 @@ function readInputs() {
 	leafProb = 0.9;
 }
 
+//	Draw entire animation
 function draw() {
 	readInputs();
-	// draw tree
-	stroke(0, 0, 0);
+	stroke(0, 0, 0, 175);
 	background(255, 255, 255);
-	translate(width / 2, height);
-	scale(1, -1);
-
-	console.log(width)
-	console.log(height)
-	if (width < 500) {
-		console.log("abc500")
-		// portrait
-		translate(0, windowHeight / 3.2);
-		size = windowHeight / 8.4;
-	} else if (width > 500 && height < 500) {
-		console.log("nah")
-		// landscape
-		// translate(20, windowHeight / 55);
-		translate(20, windowHeight / 3);
-		size = windowHeight / 13;
+	// Phone
+	if (window.innerWidth < 600) {
+		translate(width / 3.3, height / 1.6);
 	} else {
-		console.log("aaanah")
-		// screen
-		translate(30, windowHeight / 4.9)
-		size = windowHeight / 6.2;
+		translate(width / 4, height / 1.6);
 	}
+	scale(1, -1);
 	branch(1, randSeed);
 	noLoop();
 }
 
+//	Draw branches
 function branch(level, seed) {
-	// draw branches
-	if (prog < level)
-		return;
-
+	// Stop drawing if at deepest recursion level
+	if (prog < level) return;
 	randomSeed(seed);
-
 	var seed1 = random(1000),
 		seed2 = random(1000);
-
 	var growthLevel = (prog - level > 1) || (prog >= maxLevel + 1) ? 1 : (prog - level);
-
 	strokeWeight(5 * Math.pow((maxLevel - level + 1) / maxLevel, 2));
-
 	var len = growthLevel * size * (1 + rand2() * lenRand);
-
 	line(0, 0, 0, len / level);
 	translate(0, len / level);
-
 	var doBranch1 = rand() < branchProb;
 	var doBranch2 = rand() < branchProb;
-
 	var doLeaves = rand() < leafProb;
 
 	if (level < maxLevel) {
-
 		var r1 = rot * (1 + rrand() * rotRand);
 		var r2 = -rot * (1 - rrand() * rotRand);
-
 		if (doBranch1) {
 			push();
 			rotate(r1);
@@ -155,33 +118,28 @@ function branch(level, seed) {
 		}
 	}
 
-	// draw leaves
+	//	Draw leaves
 	let leafPoints = [];
-	// Set ratio for screen size
 	let ratio = (width + height) / (1300 + 1300);
-
 	leafPoints = [
 		createVector(20 * ratio, 5 * ratio), //top
 		createVector(10 * ratio, 20 * ratio),//left
 		createVector(20 * ratio, 35 * ratio),//bottom
 		createVector(30 * ratio, 20 * ratio) //right
-
 	];
-
 	if ((level >= maxLevel || (!doBranch1 && !doBranch2)) && doLeaves) {
 		draw_leaf(leafPoints);
 	}
-
 	noLoop();
 }
 
+//	Define leaves
 function draw_leaf(points) {
 	curveTightness(-0.2);
 	noStroke();
 
 	// Set leaf color
-	// fill(128 + 45 * rand2(), 0 + 45 * rand2(), 15 + 45 * rand2());
-	fill(128 + 45 * rand2(), 20 + 45 * rand2(), 15 + 45 * rand2());
+	fill(48 + 25 * rand2(), 82 + 15 * rand2(), 47 + 15 * rand2(), 155);
 
 	let p1 = p5.Vector.lerp(points[1], points[2], 0.5);
 	let p1_reverse = p5.Vector.lerp(points[3], points[2], 0.5);
@@ -215,9 +173,10 @@ function startGrow() {
 	grow();
 }
 
+//	Tree growing animation
 function grow() {
 	// Grow tree, loop() while level of recursion is below max
-	if (prog > (maxLevel + 3)) {
+	if (prog > (maxLevel + 2)) {
 		prog = maxLevel + 3;
 		loop();
 		growing = false;
@@ -228,30 +187,17 @@ function grow() {
 	var startTime = millis();
 	loop();
 	var diff = millis() - startTime;
-
 	prog += maxLevel / 8 * Math.max(diff, 20) / 1000;
-	// setTimeout(grow, Math.max(1, 20 - diff));
-
-	// site visited? don't grow then.
-	if (siteVisited == true) {
-		setTimeout(grow, 0);
-		prog = maxLevel
-	} else {
-		setTimeout(grow, Math.max(1, 20 - diff));
-	}
-
+	setTimeout(grow, Math.max(1, 20 - diff));
 }
 
-// Generate random values used for tree parameters
-
+// Generate random values used for tree parameters.
 function rand() {
 	return random(1000) / 1000;
 }
-
 function rand2() {
 	return random(2000) / 1000 - 1;
 }
-
 function rrand() {
 	return rand2() + randBias;
 }
