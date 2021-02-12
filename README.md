@@ -5,8 +5,6 @@
 
 Simple personal site with an interesting p5.js tree fractal animation.
 
-![Build Status](https://travis-ci.com/ANMillerIII/almiller.co.svg?branch=master)
-
 ## Stack
 
 | Front End  | Back End                |
