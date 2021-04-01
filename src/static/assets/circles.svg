@@ -1,0 +1,127 @@
+<svg xmlns="http://www.w3.org/2000/svg" id="my-svg" viewBox="15 15 70 70" width="200px" height="200px">
+  <path vector-effect="non-scaling-stroke" id="animated-path1" fill="none" stroke-width="1" stroke="#4d4d4d"
+  d="
+    M 25, 50
+    a 5,5 0 1,1 10,0
+    a 5,5 0 1,1 -10,0
+  "
+/>
+        <path vector-effect="non-scaling-stroke" id="animated-path2" fill="none" stroke-width="1" stroke="#4d4d4d"
+  d="
+    M 25, 50
+    a 10,10 0 1,1 20,0
+    a 10,10 0 1,1 -20,0
+  "
+/>
+        <path vector-effect="non-scaling-stroke" id="animated-path3" fill="none" stroke-width="1" stroke="#4d4d4d"
+  d="
+    M 25, 50
+    a 15,15 0 1,1 30,0
+    a 15,15 0 1,1 -30,0
+  "
+/>
+        <path vector-effect="non-scaling-stroke" id="animated-path4" fill="none" stroke-width="1" stroke="#4d4d4d"
+  d="
+    M 25, 50
+    a 20,20 0 1,1 40,0
+    a 20,20 0 1,1 -40,0
+  "
+/>
+        <path vector-effect="non-scaling-stroke" id="animated-path5" fill="none" stroke-width="1" stroke="#4d4d4d"
+  d="
+    M 25, 50
+    a 25,25 0 1,1 50,0
+    a 25,25 0 1,1 -50,0
+  "
+/>
+    <circle id="animated-path-circle1" r="0.75" fill="#4d4d4d" fill-opacity="0.7">
+        <animateMotion id="forward" 
+    repeatCount="indefinite"
+                   begin="backward.end + 1s"
+                   dur="9s" fill="freeze"
+                   keyPoints="0.7;1;0;0.7"
+                   keyTimes="0;0.7;0.7;1"
+                   calcMode="linear" >
+      <mpath  href="#animated-path1"/>
+    </animateMotion>
+    <animateMotion repeatCount="indefinite" id="backward"
+                   dur="9s" begin="0s"  fill="freeze"
+                   keyPoints="0.7;0;1;0.7"
+                   keyTimes="0;0.7;0.7;1"
+                   calcMode="linear" >
+      <mpath href="#animated-path1"/>
+    </animateMotion>
+  </circle>
+  <circle id="animated-path-circle2" r="0.75" fill="#4d4d4d" fill-opacity="0.7">
+        <animateMotion id="forward" 
+    repeatCount="indefinite"
+                   begin="backward.end + 1s"
+                   dur="7s" fill="freeze"
+                   keyPoints="0.3;0;1;0.3"
+                   keyTimes="0;0.7;0.7;1"
+                   calcMode="linear" >
+      <mpath  href="#animated-path2"/>
+    </animateMotion>
+    <animateMotion repeatCount="indefinite" id="backward"
+                   dur="7s" begin="0s"  fill="freeze"
+                   keyPoints="0.3;1;0;0.3"
+                   keyTimes="0;0.7;0.7;1"
+                   calcMode="linear" >
+      <mpath href="#animated-path2"/>
+    </animateMotion>
+  </circle>
+    <circle id="animated-path-circle3" r="0.75" fill="#4d4d4d" fill-opacity="0.7">
+        <animateMotion id="forward" 
+    repeatCount="indefinite"
+                   begin="backward.end + 1s"
+                   dur="6s" fill="freeze"
+                   keyPoints="0.3;0;1;0.3"
+                   keyTimes="0;0.7;0.7;1"
+                   calcMode="linear" >
+      <mpath  href="#animated-path3"/>
+    </animateMotion>
+    <animateMotion repeatCount="indefinite" id="backward"
+                   dur="6s" begin="0s"  fill="freeze"
+                   keyPoints="0.7;0;1;0.7"
+                   keyTimes="0;0.7;0.7;1"
+                   calcMode="linear" >
+      <mpath href="#animated-path3"/>
+    </animateMotion>
+  </circle>
+    <circle id="animated-path-circle4" r="0.75" fill="#4d4d4d" fill-opacity="0.7">
+        <animateMotion id="forward" 
+    repeatCount="indefinite"
+                   begin="backward.end + 1s"
+                   dur="5s" fill="freeze"
+                   keyPoints="0.3;0;1;0.3"
+                   keyTimes="0;0.7;0.7;1"
+                   calcMode="linear" >
+      <mpath  href="#animated-path4"/>
+    </animateMotion>
+    <animateMotion repeatCount="indefinite" id="backward"
+                   dur="5s" begin="0s"  fill="freeze"
+                   keyPoints="0.3;1;0;0.3"
+                   keyTimes="0;0.7;0.7;1"
+                   calcMode="linear" >
+      <mpath href="#animated-path4"/>
+    </animateMotion>
+  </circle>
+    <circle id="animated-path-circle5" r="0.75" fill="#4d4d4d" fill-opacity="0.7">
+        <animateMotion id="forward" 
+    repeatCount="indefinite"
+                   begin="backward.end + 1s"
+                   dur="9s" fill="freeze"
+                   keyPoints="0.3;0;1;0.3"
+                   keyTimes="0;0.7;0.7;1"
+                   calcMode="linear" >
+      <mpath  href="#animated-path5"/>
+    </animateMotion>
+    <animateMotion repeatCount="indefinite" id="backward"
+                   dur="9s" begin="0s"  fill="freeze"
+                   keyPoints="0.7;0;1;0.7"
+                   keyTimes="0;0.7;0.7;1"
+                   calcMode="linear" >
+      <mpath href="#animated-path5"/>
+    </animateMotion>
+  </circle>
+</svg>

@@ -1,0 +1,6 @@
+{
+  "dependencies": {
+    "docsify-cli": "^4.4.2",
+    "snoowrap": "^1.22.0"
+  }
+}
