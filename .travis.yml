@@ -1,0 +1,31 @@
+matrix:
+  include:
+
+  - language: node_js
+    node_js:
+    - stable
+    install:
+    - npm install -g travis-ci-cloudfront-invalidation
+    - npm install
+  - language: python
+    python:
+    - 3.4
+    before_install:
+    - export PYTHONPATH=$PYTHONPATH:$(pwd)
+    install:
+    - pip install py
+    - pip install awscli
+    script:
+    deploy:
+      provider: s3
+      access_key_id: $AWS_KEY_ID
+      secret_access_key: $SECRET_AWS_KEY_ID
+      bucket: almiller.co
+      local_dir: ./app/build
+      skip_cleanup: true
+      region: us-east-1
+    after_deploy:
+    - awscli cloudfront create-invalidation --distribution-id $DISTRIBUTION_ID --paths "/*
+      
+notifications:
+  email: false
