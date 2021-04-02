@@ -1,9 +1,9 @@
 
 <!-- <p id="b">Font Size by 1 Pixel</p> -->
 
-- <i>Software</i>
-  <!-- - <a href="/spatial_weighted_overlay"><span>Spatial Weighted Overlay</span></a> -->
-  <!-- - <a href="/vue_notes"><span>Vue Notes</span></a> -->
+- <i class="sidebar-heading">Software</i>
+  <!-- - <a href="/spatial_weighted_overlay"><span>Spatial Weighted Overlay</span></a>
+  - <a href="/vue_notes"><span>Vue Notes</span></a> -->
   <!-- - <a href="/image_binarization"><span>Image Binarization</span></a> -->
   <!-- - <a href="/react_lifecycle"><span>React Lifecycle</span></a> -->
   <!-- - <a href="/vue_cli"><span>vue-cli</span></a> -->
@@ -14,12 +14,12 @@
   <!-- - <a href="/sql"><span>SQL</span></a> -->
   <!-- - <a href="/sql"><span>SQL</span></a> -->
   
-- <i>Philosophy</i>
+- <i class="sidebar-heading">Philosophy</i></a>
   <!-- - <a href="/deconstruction"><span>Deconstruction</span></a> -->
 
-- <i>Self</i>
+- <i class="sidebar-heading">Self</i>
   - <a href="/pacific_crest_trail"><span>Pacific Crest Trail</span></a>
-  - <a href="/portfolio"><span>Portfolio</span></a>
+  <!-- - <a href="/portfolio"><span>Portfolio</span></a> -->
   - <a href="/about"><span>About</span></a>
 
 <input  id='theme-toggle-button' class="" onclick='toggleTheme()' type='image' src='./static/plugins/moon.svg'/>

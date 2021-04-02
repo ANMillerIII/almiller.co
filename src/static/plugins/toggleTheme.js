@@ -24,13 +24,13 @@ detectThemePreference();
 //  Toggle theme on click
 function toggleTheme() {
   if (document.documentElement.getAttribute('data-theme') == 'dark') {
-    document.getElementById("theme-toggle-button").src = "./static/plugins/moon.svg";
+    document.getElementById("theme-toggle-button").src = "./static/assets/toggle_theme/moon.svg";
     document.documentElement.setAttribute('data-theme', 'light')
     localStorage.setItem('theme', 'light');
-    document.getElementById('circles-animation').src = './static/assets/circles.svg';
+    document.getElementById('circles-animation').src = './static/assets/toggle_theme/circles.svg';
   } else {
-    document.getElementById("theme-toggle-button").src = "./static/plugins/sun.svg";
-    document.getElementById('circles-animation').src = './static/assets/circles_dark.svg';
+    document.getElementById("theme-toggle-button").src = "./static/assets/toggle_theme/sun.svg";
+    document.getElementById('circles-animation').src = './static/assets/toggle_theme/circles_dark.svg';
     document.documentElement.setAttribute('data-theme', 'dark')
     localStorage.setItem('theme', 'dark');
   }
