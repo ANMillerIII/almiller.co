@@ -1,9 +1,9 @@
-# <i>deconstruction</i>
+# <i>deconstruction</i> <a href="https://almiller.co/" target="__blank">(almiller.co)</a>
 
 ##  About
 
 <p>
-<i>deconstruction</i> is a personal collection of technical and abstract articles.
+ <i>deconstruction</i> <a href="https://almiller.co/" target="__blank">(almiller.co)</a> is a personal collection of technical and abstract articles.
 </p>
  The title is in reference to the work of French philosopher <a href="https://en.wikipedia.org/wiki/Jacques_Derrida" target="__blank">Jacques Derrida</a>, whose concept of deconstruction, in its most distilled form, provides a basis for questioning both our beliefs about the world and the integrity of the process through which we derive them.
 
@@ -23,7 +23,7 @@
 docsify does not create static HTML files but rather dynamically interprets markdown. To serve the dynamic content AWS EC2 instances (through Amplify) are used.
 </p>
 <p>
-The following rewrites/redirects are used for the hosted domain <a href="https://deconstruction.co/" target="__blank">deconstruction.co</a>:
+The following rewrites/redirects are used for the hosted domain <a href="https://almiller.co/" target="__blank">almiller.co</a>:
 </p>
 
 | Source      | Target | Type |
