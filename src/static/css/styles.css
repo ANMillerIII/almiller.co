@@ -68,7 +68,9 @@ a span:hover {
     /* Markdown styles */
     --heading-margin: 1rem 0 0 0;
     --navbar-root-transition: var(--duration-fast);
-    --code-theme-background: rgb(237, 237, 237);
+    --code-theme-background: rgb(226, 226, 226);
+    --toc-border-color: rgb(228, 228, 228);
+    --toc-border-color--active: var(--sidebar-nav-link-color--active);
 }
 
 /* Dark theme  */
@@ -89,6 +91,8 @@ a span:hover {
     --toc-link-hover-color: rgb(138, 138, 138) !important;
     /* odd table row color on dark mode */
     --mono-tint3: rgb(59, 59, 59);
+    --toc-border-color: rgb(145, 145, 145);
+    --toc-border-color--active: var(--sidebar-nav-link-color--active);
 }
 
 /* Dark/light toggle button */
@@ -99,7 +103,7 @@ a span:hover {
     top: 95vh;
     left: 0;
     margin-left: 10%;
-    z-index: 15 !important;
+    /* z-index: 1 !important; */
 }
 
 #theme-toggle-button:hover {
@@ -167,7 +171,7 @@ section.content {
 
 .md-image {
     width: 80%;
-    margin: auto;
+    margin: 3%;
     margin-left: 10%;
 }
 
@@ -176,6 +180,18 @@ section.content {
 .page_toc {
     font-size: smaller !important;
     margin-top: 50% !important;
+}
+
+.page_toc div {
+    border-left: 2px solid var(--toc-border-color) !important;
+    text-indent: 10px;
+    padding: 2px 0;
+    cursor: pointer;
+}
+
+.page_toc div.active {
+    border-left-color: var(--toc-border-color--active) !important;
+    transition: border-left-color 0.23s;
 }
 
 .page_toc div[class^="lv"] a span {
@@ -209,13 +225,15 @@ section.content {
 /* About page */
 
 .about {
-    width: 80%;
+    width: 65%;
+    min-width: 300px;
     margin: auto;
 }
 
 #about_header {
     text-align: center;
     margin-top: 35px;
+    margin-bottom: 35px;
 }
 
 .about a, .about .contact-links {
@@ -252,6 +270,15 @@ section.content {
     }
     aside.toc-nav:hover {
         display: none;
+    }
+}
+
+@media only screen and (max-width: 769px) {
+
+    #theme-toggle-button {
+        position: relative !important;
+        top: inherit !important;
+        bottom: -200px !important;
     }
 }
 

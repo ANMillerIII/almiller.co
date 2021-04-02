@@ -1,6 +1,4 @@
 
-<!-- <p id="b">Font Size by 1 Pixel</p> -->
-
 - <i class="sidebar-heading">Software</i>
   <!-- - <a href="/spatial_weighted_overlay"><span>Spatial Weighted Overlay</span></a>
   - <a href="/vue_notes"><span>Vue Notes</span></a> -->
@@ -22,7 +20,7 @@
   <!-- - <a href="/portfolio"><span>Portfolio</span></a> -->
   - <a href="/about"><span>About</span></a>
 
-<input  id='theme-toggle-button' class="" onclick='toggleTheme()' type='image' src='./static/plugins/moon.svg'/>
+<input  id='theme-toggle-button' class="" onclick='window.docsify.plugins.toggleTheme()' type='image' src='./static/assets/theme/moon.svg'/>
 
 
   <!-- - <a href="/330_marathon"><span>3:30 Marathon</span></a> -->

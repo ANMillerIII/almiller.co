@@ -1,7 +1,7 @@
 # <i>deconstruction</i>
 
 ##  About
-
+npm install --save-dev eslint eslint-config-prettier eslint-plugin-prettier prettier eslint-plugin-vue eslint-plugin-prettier-vue
 <p>
 <i>deconstruction</i> is a personal collection of technical and abstract articles.
 </p>
@@ -26,11 +26,11 @@ docsify does not create static HTML files but rather dynamically interprets mark
 The following rewrites/redirects are used for the hosted domain <a href="https://deconstruction.co/" target="__blank">deconstruction.co</a>:
 </p>
 
-| Source      | Target | Type |
-| ----------- | ----------- | ----------- |
-| /<*>.md	      | /<*>.md	       | 200 (Rewrite)	       |
-| /<*>.jpg	      | /<*>.jpg	       | 200 (Rewrite)	       |
-| /<*>	   | /index.html	        | 200 (Rewrite)	       |
+| Source   | Target      | Type          |
+| -------- | ----------- | ------------- |
+| /<*>.md  | /<*>.md     | 200 (Rewrite) |
+| /<*>.jpg | /<*>.jpg    | 200 (Rewrite) |
+| /<*>     | /index.html | 200 (Rewrite) |
 
 ##  Usage
 

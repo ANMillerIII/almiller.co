@@ -1,4 +1,4 @@
-<img id="circles-animation" class="fade-in-1" src="./static/assets/circles.svg" />
+<img id="circles-animation" class="fade-in-1" src="./static/assets/theme/circles.svg" />
 
 <div class="cover-info fade-in-2">
 <p style="font-size: larger">deconstructing</p>
