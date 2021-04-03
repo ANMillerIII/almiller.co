@@ -20,7 +20,7 @@
   <!-- - <a href="/portfolio"><span>Portfolio</span></a> -->
   - <a href="/about"><span>About</span></a>
 
-<input  id='theme-toggle-button' class="" onclick='window.docsify.plugins.toggleTheme()' type='image' src='./static/assets/theme/moon.svg'/>
+<!-- <input  id='theme-toggle-button' class="" type='image' src='./static/assets/theme/moon.svg'/> -->
 
 
   <!-- - <a href="/330_marathon"><span>3:30 Marathon</span></a> -->

@@ -42,6 +42,7 @@ a span:hover {
 /* Light theme (default) and general */
 
 :root {
+    --sidebar-width: 17rem;
     --base-font-family: Helvetica Nue;
     --base-font-weight: 400;
     --base-font-size: 16px;
@@ -158,6 +159,7 @@ a span:hover {
 section.content {
     padding: 25px 0 0 0 !important;
     margin: 0 0 0 0 !important;
+    /* position: relative; */
 }
 
 .markdown-section {
@@ -262,7 +264,7 @@ section.content {
 
 
 .markdown-section {
-    margin-left: min(100px) !important;
+    /* margin-left: min(100px) !important; */
 }
 
 /* Mobile */
@@ -281,14 +283,26 @@ section.content {
     }
 }
 
-@media only screen and (max-width: 1200px) {
+@media only screen and (max-width: 1000px) {
+
+    /* .sidebar {
+        position: absolute;
+        transform: translateX(var(--sidebar-width));
+    } */
 
     #theme-toggle-button {
         position: relative !important;
         top: inherit !important;
         bottom: -200px !important;
     }
+    .markdown-section {
+        margin-left: min(18rem, auto) !important;
+    }
 }
+
+/* @media (min-width: 48em) {
+} */
+
 
 /* Landscape */
 
