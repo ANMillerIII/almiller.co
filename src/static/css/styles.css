@@ -42,7 +42,7 @@ a span:hover {
 /* Light theme (default) and general */
 
 :root {
-    --sidebar-width: 17rem;
+    --sidebar-width: 15rem;
     --base-font-family: Helvetica Nue;
     --base-font-weight: 400;
     --base-font-size: 16px;
@@ -104,7 +104,7 @@ a span:hover {
     top: 95vh;
     left: 0;
     margin-left: 10%;
-    /* z-index: 1 !important; */
+    z-index: 1000 !important;
 }
 
 #theme-toggle-button:hover {
@@ -209,7 +209,7 @@ section.content {
 /* Contact icons */
 
 .contact-links {
-    margin-top: 30%;
+    margin-top: 40%;
     opacity: 0;
 }
 
@@ -220,6 +220,7 @@ section.content {
 
 .contact-links-about * {
     margin: 5px;
+    margin-top: 15px;
     font-size: 13px;
     float: right;
 }
@@ -227,7 +228,7 @@ section.content {
 /* About page */
 
 .about {
-    width: 65%;
+    width: 60%;
     min-width: 300px;
     margin: auto;
 }
@@ -262,11 +263,6 @@ section.content {
     transition: color 0.3s ease;
 }
 
-
-.markdown-section {
-    /* margin-left: min(100px) !important; */
-}
-
 /* Mobile */
 
 /* Portrait */
@@ -284,12 +280,6 @@ section.content {
 }
 
 @media only screen and (max-width: 1000px) {
-
-    /* .sidebar {
-        position: absolute;
-        transform: translateX(var(--sidebar-width));
-    } */
-
     #theme-toggle-button {
         position: relative !important;
         top: inherit !important;
@@ -299,10 +289,6 @@ section.content {
         margin-left: min(18rem, auto) !important;
     }
 }
-
-/* @media (min-width: 48em) {
-} */
-
 
 /* Landscape */
 
