@@ -255,6 +255,8 @@ section.content {
 
 .sidebar-heading:hover {
     cursor: pointer;
+    color: var(--sidebar-nav-link-color--active);
+    transition: color 0.3s ease;
 }
 
 /* Mobile */

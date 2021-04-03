@@ -41,7 +41,6 @@ I remeber the first night out of Campo underestimating water and being thirsty, 
 
 ### Oregon
 
-<!-- ![](static/assets/pct/hood2.jpg) -->
 <img class="md-image" src="./static/assets/articles/pct/hood2.jpg" />
 
 ### Wildfires
