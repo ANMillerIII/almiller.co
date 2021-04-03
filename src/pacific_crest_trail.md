@@ -54,4 +54,5 @@ So I hope to complete this one. Rainy Pass to Manning Park, 60 miles. I am nearl
 
 ## Further Reading
 
-- <a href="#"><span>Short film of the 2018 hike</span></a>
+
+<ul class="md-list"><li><a href="#"><span>Short film of the 2018 hike</span></a></li></ul>
