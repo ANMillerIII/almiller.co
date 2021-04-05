@@ -1,9 +1,9 @@
-# <a href="https://almiller.co/" target="__blank">(almiller.co)</a>
+# <a href="https://almiller.co/" target="__blank">almiller.co</a>
 
 ##  About
 
 <p>
-<a href="https://almiller.co/" target="__blank">(almiller.co)</a> is a collection of personal, technical and abstract articles.
+<a href="https://almiller.co/" target="__blank">almiller.co</a> is a collection of personal, technical and abstract articles.
 </p>
 
 ##  Technical
