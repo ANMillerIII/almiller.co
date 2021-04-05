@@ -5,7 +5,7 @@
   <!-- - <a href="/image_binarization"><span>Image Binarization</span></a> -->
   <!-- - <a href="/react_lifecycle"><span>React Lifecycle</span></a> -->
   <!-- - <a href="/vue_cli"><span>vue-cli</span></a> -->
-  <!-- - <a href="/aws_exam"><span>AWS Certification</span></a> -->
+  - <a href="/aws_exam"><span>AWS Certification</span></a>
   <!-- - <a href="/data_structures"><span>Data Structures Index -->
   <!-- - <a href="/dds"><span>DDS -->
   <!-- - <a href="/electron"><span>Electron -->
