@@ -1,11 +1,17 @@
-
+- <i class="sidebar-heading">Self</i>
+  - <a href="/pacific_crest_trail"><span>Pacific Crest Trail</span></a>
+  - <a href="/climate_journey"><span>Climate Journey</span></a>
+  <!-- - <a href="/portfolio"><span>Portfolio</span></a> -->
+  - <a href="/about"><span>About</span></a>
 - <i class="sidebar-heading">Software</i>
-  <!-- - <a href="/spatial_weighted_overlay"><span>Spatial Weighted Overlay</span></a>
-  - <a href="/vue_notes"><span>Vue Notes</span></a> -->
+
+  <!-- - <a href="/spatial_weighted_overlay"><span>Spatial Weighted Overlay</span></a> -->
+  - <a href="/scoped_slots_in_vue"><span>Scoped Slots in Vue</span></a>
+  - <a href="/principles_of_state_management"><span>State Management</span></a>
   <!-- - <a href="/image_binarization"><span>Image Binarization</span></a> -->
   <!-- - <a href="/react_lifecycle"><span>React Lifecycle</span></a> -->
   <!-- - <a href="/vue_cli"><span>vue-cli</span></a> -->
-  - <a href="/aws_exam"><span>AWS Certification</span></a>
+  <!-- - <a href="/aws_exam"><span>AWS Certification</span></a> -->
   <!-- - <a href="/data_structures"><span>Data Structures Index -->
   <!-- - <a href="/dds"><span>DDS -->
   <!-- - <a href="/electron"><span>Electron -->
@@ -15,10 +21,7 @@
 - <i class="sidebar-heading">Philosophy</i></a>
   <!-- - <a href="/deconstruction"><span>Deconstruction</span></a> -->
 
-- <i class="sidebar-heading">Self</i>
-  - <a href="/pacific_crest_trail"><span>Pacific Crest Trail</span></a>
-  <!-- - <a href="/portfolio"><span>Portfolio</span></a> -->
-  - <a href="/about"><span>About</span></a>
+
 
 <!-- <input  id='theme-toggle-button' class="" type='image' src='./static/assets/theme/moon.svg'/> -->
 

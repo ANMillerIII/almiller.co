@@ -6,8 +6,13 @@
 </div>
 
 <div class="contact-links fade-in-3">
-<a href="./static/assets/anm_resume.pdf" target="__blank" download="anm_resume.pdf"><i class="fas fa-file-pdf icon"></i></a>
-<a href="https://www.github.com/ANMillerIII/" target="__blank"><i class="fab fa-github icon"></i></a>
+<a href="./static/assets/amiller_resume.pdf" target="__blank" download="amiller_resume.pdf"><i class="fas fa-file-pdf icon"></i></a>
+<a href="https://www.github.com/anmilleriii/" target="__blank"><i class="fab fa-github icon"></i></a>
 <a href="https://www.linkedin.com/in/al-miller/" target="__blank"><i class="fab fa-linkedin-in icon"></i></a>
 <a href="mailto:albert.miller@uconn.edu" target="__blank"><i class="fas fa-envelope icon"></i></a>
+<i class="fas fa-down-arrow bounce"></i>
+
+<!-- <div class="arrow bounce"></div> -->
+
+
 </div>

@@ -1,6 +1,6 @@
 [//]: # (Date)
 
-<p id="about_header">Welcome</p>
+<!-- <p id="about_header">Welcome</p> -->
 <div class="about">
 <p>
 It's good to meet you. My name is Al and I am a software engineer with interests spanning philosophy, sustainability and technology.
@@ -16,8 +16,8 @@ Please feel free to reach out.
 <div class="contact-links-about">
 <a href="mailto:albert.miller@uconn.edu" target="__blank"><i class="fas fa-envelope"></i></a>
 <a href="https://www.linkedin.com/in/al-miller/" target="__blank"><i class="fab fa-linkedin-in icon"></i></a>
-<a href="https://www.github.com/ANMillerIII/" target="__blank"><i class="fab fa-github icon"></i></a>
-<a href="./static/assets/anm_resume.pdf" target="__blank" download="anm_resume.pdf"><i class="fas fa-file-pdf"></i></a>
+<a href="https://www.github.com/anmilleriii/" target="__blank"><i class="fab fa-github icon"></i></a>
+<a href="./static/assets/amiller_resume.pdf" target="__blank" download="amiller_resume.pdf"><i class="fas fa-file-pdf"></i></a>
 </div>
 </div>
 

@@ -1,5 +1,9 @@
 # <a href="https://almiller.co/" target="__blank">almiller.co</a>
 
+
+- add toggle sidebar indicator icon
+- add code file title
+- add code highlighting?
 ##  About
 
 <p>
@@ -8,18 +12,22 @@
 
 ##  Technical
 
+Run on `localhost:3000`:
+
+`docsify run serve`
+
 ###    Docsify.js
 
-This uses <a href="https://docsify.js.org/" target="__blank">docsify.js</a>, an open-source markdown documentation generator. The following docsify plugins are also used:
+This site uses <a href="https://docsify.js.org/" target="__blank">docsify.js</a>, an open-source markdown documentation generator. The following docsify plugins are also used:
 
 - <a href="https://jhildenbiddle.github.io/docsify-themeable/#/" target="__blank">docsify-themeable</a>
-- <a href="https://github.com/erickjx/docsify-footer-enh" target="__blank">docsify-footer</a>
-- docsify-search
+<!-- - <a href="https://github.com/erickjx/docsify-footer-enh" target="__blank">docsify-footer</a> -->
+<!-- - docsify-search -->
 
 ###    Hosting on AWS
 
 <p>
-docsify does not create static HTML files but rather dynamically interprets markdown. To serve the dynamic content AWS EC2 instances (through Amplify) are used.
+Docsify dynamically generates HTML from Markdown using Prism.To serve the dynamic content, AWS EC2 instances (through Amplify) are used.
 </p>
 <p>
 The following rewrites/redirects are used for the hosted domain <a href="https://almiller.co/" target="__blank">almiller.co</a>:
@@ -38,7 +46,9 @@ The following rewrites/redirects are used for the hosted domain <a href="https:/
 
 ##  Usage
 
-Feel free to use this template for your own blog, no crediting required.
+Feel free to use this template for your own docsify site, no crediting required.
+
+Eventual will write this theme into an official docsify theme.
 
 ##  License
 
