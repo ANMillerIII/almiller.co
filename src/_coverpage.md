@@ -10,7 +10,7 @@
 <a href="https://www.github.com/anmilleriii/" target="__blank"><i class="fab fa-github icon"></i></a>
 <a href="https://www.linkedin.com/in/al-miller/" target="__blank"><i class="fab fa-linkedin-in icon"></i></a>
 <a href="mailto:albert.miller@uconn.edu" target="__blank"><i class="fas fa-envelope icon"></i></a>
-<i class="fas fa-down-arrow bounce"></i>
+<!-- <i class="fas fa-down-arrow bounce"></i> -->
 
 <!-- <div class="arrow bounce"></div> -->
 
