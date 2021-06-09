@@ -1,14 +1,1 @@
-<<<<<<< HEAD
-# packages
-node_modules/
-# package-lock.json
-
-# environment
-.vscode/
-.DS_Store
-
-# working directory
-not_used/
-=======
-.DS_Store
->>>>>>> a6b3d6ae4d56c0d703848b21fc7772bf5ba80cc5
+_temp/
