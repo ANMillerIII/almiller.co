@@ -46,9 +46,14 @@ The following rewrites/redirects are used for the hosted domain <a href="https:/
 
 ##  Usage
 
+<<<<<<< HEAD
 Feel free to use this template for your own docsify site, no crediting required.
 
 Eventual will write this theme into an official docsify theme.
+=======
+1. Uploads to S3 and invalidate CloudFront distribution (i.e., deploys to https://almiller.co).
+2. Create AWS CloudFront cache invalidation or use S3 versioning from AWS Console to deploy.
+>>>>>>> a6b3d6ae4d56c0d703848b21fc7772bf5ba80cc5
 
 ##  License
 
