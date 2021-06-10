@@ -16,6 +16,9 @@ module.exports = {
   rules: {
     "no-console": process.env.NODE_ENV === "production" ? "warn" : "off",
     "no-debugger": process.env.NODE_ENV === "production" ? "warn" : "off",
+    // Custom
+    "no-unused-labels": "off",
+    "no-undef": "off",
   },
   overrides: [
     {
